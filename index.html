@@ -133,7 +133,7 @@
                 <papertitle>k-experts: Online Policies and Fundamental Limits</papertitle></a>
                <br>Samrat Mukhopadhyay, <strong>Sourav Sahoo</strong>, and Abhishek Sinha<br>
                <strong>International Conference on Artificial Intelligence and Statistics (AISTATS), Virtual, March 2022.</strong><br>
-               <a href="https://arxiv.org/abs/2110.07881">ArXiv Version</a> /
+               <a href="https://proceedings.mlr.press/v151/mukhopadhyay22a.html">Paper</a> /
                <a href="./files/experts.bib">BibTex</a>
                 <p></p>
                <p>This paper introduces and studies the k-experts problem -- a generalization of the classic Prediction with Expert's Advice (i.e., the Experts) problem. Unlike the Experts problem, where the learner chooses exactly one expert, in this problem, the learner selects a subset of k experts from a pool of N experts at each round. The reward obtained by the learner at any round depends on the rewards of the selected experts. The k-experts problem arises in many practical settings, including online ad placements, personalized news recommendations, and paging. Our primary goal is to design an online learning policy having a small regret. In this pursuit, we propose SAGE (Sampled Hedge) - a framework for designing efficient online learning policies by leveraging statistical sampling techniques. We show that, for many related problems, SAGE improves upon the state-of-the-art bounds for regret and computational complexity. Furthermore, going beyond the notion of regret, we characterize the mistake bounds achievable by online learning policies for a class of stable loss functions. We conclude the paper by establishing a tight regret lower bound for a variant of the k-experts problem and carrying out experiments with standard datasets.</p>
@@ -494,6 +494,32 @@
           </tbody></table>
           <table width="100%" align="center" border="0" cellpadding="20">
             <tbody><tr>
+
+                          <td width="25%"><img src="./img/fastlr.png" alt="PontTuset" width="200" style="border-style: none">
+	              </td><td width="75%" valign="top">
+	                <p><a href="#">
+	<papertitle>SVRG-SO: SVRG for Stochastic Optimization</papertitle></a>
+                        <br><strong>Sourav Sahoo</strong><br>
+                        <strong>CS6515 Final Project</strong><br>
+                        <a href="./files/cs6515_project.pdf">Report</a>
+                </p><p></p>
+                <p> Stochastic Variance Reduced Gradient (SVRG) belongs to a family of gradient aggregation algorithms widely
+                    used in large-scale machine learning applications. SVRG achieved linear convergence for strongly convex finite-
+                    sum optimization problems. Although similar results were also obtained by previous algorithms such as stochastic
+                    dual coordinate ascent (SDCA) and stochastic average gradient (SAG), SVRG is more intuitive and simpler
+                    to analyse. Furthermore, SVRG also works well in practice for non-strongly convex or non-convex finite-sum
+                    problems. Owing to such robustness and simplicity of the algorithm, we adapt it for stochastic optimization
+                    problems in this work. In this pursuit, we present SVRG for Stochastic Optimization (SVRG-SO) and recover
+                    optimal convergence rates for strongly convex and smooth objective functions.</p>
+</br></br>
+                </p><p></p>
+                <p></p>
+              </td>
+            </tr>
+
+
+
+
                 <td width="25%"><img src="./img/01_noise_hedge.png" alt="PontTuset" width="200" style="border-style: none">
 	              </td><td width="75%" valign="top">
 	                <p><a href="#">
@@ -507,7 +533,6 @@
                 </p><p></p>
                 <p> Efficient boosting algorithms have existed for both realizable and agnostic settings in the statistical learning framework, but only for the realizable case in the online setting. In the <a href="https://papers.nips.cc/paper/2020/hash/07168af6cb0ef9f78dae15739dd73255-Abstract.html">recent paper</a>, Brukhim <i>et al.</i> proposed the first agnostic online boosting algorithm that achieved sublinear regret. The algorithm efficiently converts an arbitrary online convex optimizer into an online booster. This algorithm also extends to statistical as well as online realizable setting. In this work, we briefly state the main results of the above-mentioned paper and conduct experiments on two different datasets to study the proposed algorithm's empirical performance.
 </br></br>
-<!-- <small>*This work was done while I was at UW.</small> -->
                 </p><p></p>
                 <p></p>
               </td>
@@ -529,6 +554,9 @@
                 <p></p>
               </td>
             </tr>
+
+
+
 
 <!--	              <td width="25%"><img src="./files/segment_ser_supplement_paper64.pdf" alt="PontTuset" width="200" style="border-style: none">-->
 <!--	              </td><td width="75%" valign="top">-->
