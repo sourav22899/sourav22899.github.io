@@ -6,30 +6,94 @@
     <title>Sourav Sahoo</title>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&family=Optima:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* CSS Variables for theme colors */
+        :root {
+            --bg-color: #ffffe0;
+            --text-color: #333;
+            --text-secondary: #666;
+            --accent-color: #1772d0;
+            --accent-hover: #f09228;
+            --card-bg: rgba(255, 255, 255, 0.25);
+            --card-border: rgba(255, 255, 255, 0.2);
+            --button-bg: rgba(23, 114, 208, 0.08);
+            --button-hover: rgba(23, 114, 208, 0.15);
+            --news-bg: rgba(255, 255, 255, 0.2);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --text-secondary: #b0b0b0;
+            --accent-color: #4a9eff;
+            --accent-hover: #ffa726;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --button-bg: rgba(74, 158, 255, 0.1);
+            --button-hover: rgba(74, 158, 255, 0.2);
+            --news-bg: rgba(255, 255, 255, 0.08);
+        }
+
         /* Color scheme and typography */
         body {
             font-family: "Optima", "Gill Sans", "Gill Sans MT", "Helvetica", "Lato", "Verdana", sans-serif;
             font-size: 20px;
-            background-color: #ffffe0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             margin: 0;
             padding: 15px;
             line-height: 1.3;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
-            background: #ffffe0;
+            background: var(--bg-color);
+        }
+
+        /* Theme toggle button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--button-bg);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .theme-toggle:hover {
+            background: var(--button-hover);
+            transform: scale(1.1);
+        }
+
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+            color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle.rotating svg {
+            transform: rotate(180deg);
         }
 
         a {
-            color: #1772d0;
+            color: var(--accent-color);
             text-decoration: none;
             transition: color 0.2s ease;
         }
 
         a:hover, a:focus {
-            color: #f09228;
+            color: var(--accent-hover);
         }
 
         .header {
@@ -56,6 +120,7 @@
             max-width: 250px;
             height: auto;
             border-radius: 8px;
+            transition: opacity 0.3s ease;
         }
 
         .name {
@@ -63,7 +128,7 @@
             font-weight: 600;
             text-align: center;
             margin-bottom: 12px;
-            color: #333;
+            color: var(--text-color);
             line-height: 1.2;
         }
 
@@ -88,7 +153,7 @@
             align-items: center;
             justify-content: center;
             padding: 10px;
-            background: rgba(23, 114, 208, 0.08);
+            background: var(--button-bg);
             border-radius: 50%;
             font-size: 22px;
             transition: all 0.2s ease;
@@ -97,7 +162,7 @@
         }
 
         .contact-links a:hover {
-            background: rgba(23, 114, 208, 0.15);
+            background: var(--button-hover);
             transform: translateY(-1px);
         }
 
@@ -113,8 +178,8 @@
         .section-title {
             font-size: 24px;
             font-weight: 600;
-            color: #333;
-            border-bottom: 2px solid #1772d0;
+            color: var(--text-color);
+            border-bottom: 2px solid var(--accent-color);
             padding-bottom: 6px;
             margin-bottom: 12px;
             line-height: 1.2;
@@ -123,9 +188,10 @@
         .publication {
             margin-bottom: 16px;
             padding: 12px;
-            background: rgba(255, 255, 255, 0.25);
+            background: var(--card-bg);
             border-radius: 6px;
-            border-left: 3px solid #1772d0;
+            border-left: 3px solid var(--accent-color);
+            transition: background-color 0.3s ease;
         }
 
         .paper-title {
@@ -136,11 +202,11 @@
         }
 
         .paper-title a {
-            color: #333;
+            color: var(--text-color);
         }
 
         .paper-title a:hover {
-            color: #1772d0;
+            color: var(--accent-color);
         }
 
         .authors {
@@ -152,7 +218,7 @@
 
         .venue {
             margin-bottom: 6px;
-            color: #666;
+            color: var(--text-secondary);
             font-size: 16px;
             line-height: 1.25;
         }
@@ -160,7 +226,7 @@
         .paper-links a {
             margin-right: 12px;
             padding: 4px 10px;
-            background: rgba(23, 114, 208, 0.1);
+            background: var(--button-bg);
             border-radius: 4px;
             font-size: 15px;
         }
@@ -168,15 +234,16 @@
         .news-item {
             margin-bottom: 10px;
             padding: 8px 12px;
-            background: rgba(255, 255, 255, 0.2);
+            background: var(--news-bg);
             border-radius: 4px;
             font-size: 17px;
             line-height: 1;
+            transition: background-color 0.3s ease;
         }
 
         .news-date {
             font-weight: 600;
-            color: #1772d0;
+            color: var(--accent-color);
         }
 
         .underline {
@@ -185,7 +252,7 @@
 
         .equal-contrib {
             font-size: 15px;
-            color: #666;
+            color: var(--text-secondary);
             font-style: italic;
             line-height: 1.3;
         }
@@ -212,10 +279,24 @@
             .bio {
                 font-size: 16px;
             }
+
+            .theme-toggle {
+                top: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme">
+        <svg id="themeIcon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+        </svg>
+    </button>
+
     <div class="container">
         <!-- Header Section -->
         <header class="header">
@@ -269,35 +350,6 @@
                 <span class="news-date">[2022.01]</span> <a href="https://arxiv.org/abs/2110.07881">k-experts: Online Policies and Fundamental Limits</a> accepted at <a href="https://aistats.org/aistats2022/">AISTATS 2022</a>.
             </div>
         </section>
-
-        <!-- Preprints Section -->
-<!--        <section class="section">-->
-<!--            <h2 class="section-title">Preprints</h2>-->
-
-<!--            <article class="publication">-->
-<!--                <div class="paper-title">-->
-<!--                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5271846">Learning Safe Strategies for Value Maximizing Buyers in Uniform Price Auctions</a>-->
-<!--                </div>-->
-<!--                <div class="authors">-->
-<!--                    Negin Golrezaei and <span class="underline">Sourav Sahoo</span>-->
-<!--                </div>-->
-<!--                <div class="paper-links">-->
-<!--                    <a href="https://arxiv.org/abs/2406.03674">Slides</a>-->
-<!--                </div>-->
-<!--            </article>-->
-
-<!--&lt;!&ndash;            <article class="publication">&ndash;&gt;-->
-<!--&lt;!&ndash;                <div class="paper-title">&ndash;&gt;-->
-<!--&lt;!&ndash;                    <a href="https://arxiv.org/abs/2209.14222">Online Subset Selection using α-Core with no Augmented Regret</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                <div class="authors">&ndash;&gt;-->
-<!--&lt;!&ndash;                    <span class="underline">Sourav Sahoo</span>, Siddhant Chaudhary, Samrat Mukhopadhyay, and Abhishek Sinha&ndash;&gt;-->
-<!--&lt;!&ndash;                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                <div class="paper-links">&ndash;&gt;-->
-<!--&lt;!&ndash;                    <a href="https://arxiv.org/abs/2209.14222">ArXiv</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;            </article>&ndash;&gt;-->
-<!--        </section>-->
 
         <!-- Conference Publications Section -->
         <section class="section">
@@ -414,5 +466,60 @@
             </article>
         </section>
     </div>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const body = document.body;
+
+        // Sun icon SVG
+        const sunIcon = `<path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>`;
+
+        // Moon icon SVG
+        const moonIcon = `<path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>`;
+
+        // Check for saved theme preference or default to 'light'
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        // Apply the saved theme
+        if (currentTheme === 'dark') {
+            body.setAttribute('data-theme', 'dark');
+            themeIcon.innerHTML = moonIcon;
+        } else {
+            body.removeAttribute('data-theme');
+            themeIcon.innerHTML = sunIcon;
+        }
+
+        // Theme toggle event listener
+        themeToggle.addEventListener('click', function() {
+            // Add rotation effect
+            themeToggle.classList.add('rotating');
+
+            // Toggle theme
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                themeIcon.innerHTML = sunIcon;
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                themeIcon.innerHTML = moonIcon;
+                localStorage.setItem('theme', 'dark');
+            }
+
+            // Remove rotation effect after animation
+            setTimeout(() => {
+                themeToggle.classList.remove('rotating');
+            }, 300);
+        });
+
+        // Keyboard accessibility
+        themeToggle.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                themeToggle.click();
+            }
+        });
+    </script>
 </body>
 </html>
