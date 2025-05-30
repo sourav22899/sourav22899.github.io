@@ -1,287 +1,418 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<!-- original template from from url=(0035)http://www.cs.berkeley.edu/~barron/ -->
-<link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet'>
-<html lang=""><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-	<meta name="viewport" content="width=800">
-    <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
-     <style type="text/css">
-    /* Color scheme stolen from Sergey Karayev */
-    a {
-    color: #1772d0;
-    text-decoration:none;
-    }
-    a:focus, a:hover {
-    color: #f09228;
-    text-decoration:none;
-    }
-    body,td,th,tr,p,a {
-    font-family: "Optima", 'Inconsolata', "Gill Sans", "Gill Sans MT", "Optima", 'Helvetica', Lato, Verdana, sans-serif;
-    font-size: 18px; background-color: #ffffe0;
-    }
-    strong {
-    font-family: "Optima", 'Inconsolata', "Gill Sans", "Gill Sans MT", 'Helvetica', Lato, Verdana, sans-serif;
-    font-size: 18px;
-    }
-    heading {
-    font-family: "Optima", 'Inconsolata', "Gill Sans", "Gill Sans MT", 'Helvetica', Lato, Verdana, sans-serif;
-    font-size: 30px;
-    }
-    papertitle {
-    font-family: "Optima", 'Inconsolata', "Gill Sans", "Gill Sans MT", 'Helvetica', Lato, Verdana, sans-serif;
-    font-size: 18px;
-    }
-    name {
-    font-family: "Optima",'Inconsolata', "Gill Sans", "Gill Sans MT", 'Helvetica', Lato, Verdana , sans-serif;
-    font-size: 40px; font-weight: 600;
-    }
-    .one
-    {
-    width: 180px;
-    height: 180px;
-    position: relative;
-    }
-    .two
-    {
-    width: 180px;
-    height: 180px;
-    position: absolute;
-    transition: opacity .2s ease-in-out;
-    -moz-transition: opacity .2s ease-in-out;
-    -webkit-transition: opacity .2s ease-in-out;
-    }
-    .fade {
-     transition: opacity .2s ease-in-out;
-     -moz-transition: opacity .2s ease-in-out;
-     -webkit-transition: opacity .2s ease-in-out;
-    }
-    span.highlight {
-        background-color: #ffffd0;
-    }
-  </style>
-
-    <link href='http://fonts.googleapis.com/css?family=Helvetica:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link rel="icon" type="image/png" href="http://www.cs.berkeley.edu/~barron/seal_icon.png">
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sourav Sahoo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&family=Optima:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Color scheme and typography */
+        body {
+            font-family: "Optima", "Gill Sans", "Gill Sans MT", "Helvetica", "Lato", "Verdana", sans-serif;
+            font-size: 20px;
+            background-color: #ffffe0;
+            margin: 0;
+            padding: 15px;
+            line-height: 1.3;
+        }
 
-    <link href="/img/css" rel="stylesheet" type="text/css">
-  </head>
-  <body>
-    <table width="1000" border="0" align="center" cellspacing="0" cellpadding="0">
-      <tbody><tr>
-        <td>
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody><tr>
-              <td width="68%" valign="middle">
-                <p align="center">
-                  <name>Sourav Sahoo</name>
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffe0;
+        }
 
-                </p><p align="">I am a second-year PhD student at the <a href="https://orc.mit.edu/">Operations Research Center</a> at <a href="https://mit.edu/">MIT</a> advised by <a href="https://www.mit.edu/~golrezae/">Prof. Negin Golrezaei.</a> I graduated with a dual degree (B.Tech + M.Tech) from the Department of
-                  <a href="http://www.ee.iitm.ac.in/">Electrical Engineering</a> at the <a href="https://www.iitm.ac.in/">Indian Institute of Technology Madras, Chennai</a> where I was fortunate to be advised by <a href="https://www.tifr.res.in/~abhishek.sinha/">Prof. Abhishek Sinha</a>. My primary research interests are optimization, mechanism design, auctions, game theory and online learning.
-                  <br>
+        a {
+            color: #1772d0;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
 
-                </p><p align="center">
+        a:hover, a:focus {
+            color: #f09228;
+        }
 
-                <a href="mailto:sahoo.sourav1999@gmail.com">Email</a> /
-                <a href="https://scholar.google.co.in/citations?hl=en&authuser=1&user=IWZJF8wAAAAJ">Google Scholar</a> /
-<!--                <a href="https://www.researchgate.net/profile/Sourav_Sahoo4">ResearchGate</a> /&nbsp-->
-                <a href="https://www.linkedin.com/in/sourav-sahoo-68a07615a/"> LinkedIn </a> /
-                <a href="https://twitter.com/sourav22899"> Twitter </a> /
-                <a href="https://github.com/sourav22899"> GitHub </a> /
-                <a href="./files/cv_updated.pdf"> CV </a>
-                </p>
-              </td>
-			  <td width="33%">
-                  <img src="./img/profile_pic2.jpeg" alt="" width="100%" align="top">
-<!--			  <img src="./img/20190510_111651.jpg" alt="" width="100%" align="top">-->
-			  </td>
-<!-- 				<td> <img src="./img/20190510_111651.jpg" style="width: 200;"></td></tr>  -->
-          </tbody></table>
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
 
+        .profile-info {
+            flex: 2;
+            min-width: 300px;
+        }
 
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody><tr>
-              <td>
-                <heading>News</heading>
-                  <p> [2024.06] Our <a href="https://arxiv.org/abs/2406.03674">paper</a> on uniform price auctions is out.</p>
-                  <p> [2023.09] Started PhD at MIT!</p>
-                  <p> [2022.09] Our <a href="https://arxiv.org/abs/2209.14222">paper</a> on online subset selection is out.</p>
-                  <p> [2022.07] Graduated from IIT Madras!</p>
-                  <p> [2022.02] Our <a href="https://arxiv.org/abs/2109.12340">paper</a> on distributed online optimization was accepted at <a href="https://acc2022.a2c2.org/">ACC 2022.</a></p>
-              </td>
-            </tr>
-          </tbody></table>
+        .profile-image {
+            flex: 1;
+            min-width: 180px;
+            text-align: center;
+        }
 
-	  <!--SECTION -->
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody><tr>
-              <td>
-                <heading>Preprints</heading>
-              </td>
-            </tr>
-          </tbody></table>
+        .profile-image img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 8px;
+        }
 
- <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-		<tbody>
-		   <tr>
-	              </td><td width="75%" valign="top">
-	        <a href="https://arxiv.org/abs/2406.03674">
-                <papertitle>Bidding in Uniform Price Auction for Value Maximizing Buyers</papertitle></a>
-               <br>Negin Golrezaei and <span style="text-decoration: underline;">Sourav Sahoo</span><br>
-               <a href="https://arxiv.org/abs/2406.03674">Preprint</a> /
-                <a href="https://www.dropbox.com/scl/fi/rh3gn02lzhxegz37g2s53/multi_unit_auctions_RMP.pdf?rlkey=g5rreukqpemh7nnrflbgout7n&dl=0">Slides</a> /
-               <a href="https://github.com/sourav22899/vm-buyers-up-auctions">Code</a>
-                <p></p>
-		</p><p></p>
-                <p></p>
-              </td>
-            </tr>
+        .name {
+            font-size: 42px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 12px;
+            color: #333;
+            line-height: 1.2;
+        }
 
-            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-		<tbody>
-		   <tr>
-	              </td><td width="75%" valign="top">
-	        <a href="https://arxiv.org/abs/2209.14222">
-                <papertitle>Online Subset Selection using &alpha;-Core with no Augmented Regret</papertitle></a>
-               <br><span style="text-decoration: underline;">Sourav Sahoo</span>, Siddhant Chaudhary, Samrat Mukhopadhyay, and Abhishek Sinha<br>
-               <a href="https://arxiv.org/abs/2209.14222">Preprint</a>
-                <p></p>
-		</p><p></p>
-                <p></p>
-              </td>
-            </tr>
+        .bio {
+            margin-bottom: 12px;
+            text-align: justify;
+            font-size: 18px;
+            line-height: 1.35;
+        }
 
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody><tr>
-              <td>
-                <heading>Conferences</heading>
-              </td>
-            </tr>
-          </tbody></table>
+        .contact-links {
+            text-align: center;
+            margin-top: 12px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
 
-                  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-		<tbody>
-		   <tr>
-	              </td><td width="75%" valign="top">
-	        <a href="https://arxiv.org/abs/2109.12340">
-                <papertitle>Distributed Online Optimization with Byzantine Adversarial Agents</papertitle></a>
-               <br><span style="text-decoration: underline;">Sourav Sahoo</span>, Anand Gokhale and Rachel Kalpana Kalaimani<br>
-               American Control Conference (ACC), Atlanta, United States, June 2022.<br>
-               <a href="https://ieeexplore.ieee.org/document/9867506">Paper</a> /
-               <a href="./files/dist_opt.bib">BibTex</a>
-                <p></p>
-		</p><p></p>
-                <p></p>
-              </td>
-            </tr>
+        .contact-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            background: rgba(23, 114, 208, 0.08);
+            border-radius: 50%;
+            font-size: 22px;
+            transition: all 0.2s ease;
+            width: 44px;
+            height: 44px;
+        }
 
+        .contact-links a:hover {
+            background: rgba(23, 114, 208, 0.15);
+            transform: translateY(-1px);
+        }
 
-            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-		<tbody>
-		   <tr>
-               </td><td width="75%" valign="top">
-	        <a href="https://arxiv.org/abs/2110.07881">
-                <papertitle>k-experts: Online Policies and Fundamental Limits</papertitle></a>
-               <br>Samrat Mukhopadhyay, <span style="text-decoration: underline;">Sourav Sahoo</span>, and Abhishek Sinha<br>
-               International Conference on Artificial Intelligence and Statistics (AISTATS), Virtual, March 2022.<br>
-               <a href="https://proceedings.mlr.press/v151/mukhopadhyay22a.html">Paper</a> /
-               <a href="https://github.com/sourav22899/k-sets-problem">Code</a> /
-               <a href="./files/experts.bib">BibTex</a>
-                <p></p>
-		</p><p></p>
-                <p></p>
-              </td>
-            </tr>
+        .contact-links svg {
+            width: 24px;
+            height: 24px;
+        }
 
+        .section {
+            margin: 20px 0;
+        }
 
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-		<tbody>
-		   <tr>
-               </td><td width="75%" valign="top">
-	                <p><a href="https://link.springer.com/chapter/10.1007/978-3-030-41299-9_34">
-                        <papertitle>A Segment Level Approach to Speech Emotion Recognition using Transfer Learning</papertitle></a>
-                        <br><span style="text-decoration: underline;">Sourav Sahoo</span>, Puneet Kumar, Balasubramanian Raman and Partha Pratim Roy<br>
-                        Asian Conference on Pattern Recognition (ACPR), Auckland, New Zealand, November 2019. <br>
-                <a href="./files/segment_ser_paper64.pdf">Paper</a> /
-                        <a href="./files/segment_ser_supplement_paper64.pdf">Supplementary</a> /
-                        <a href="./files/acpr_paper_64_poster.pdf">Poster</a> /
-                        <a href="https://github.com/sourav22899/segment-ser">Code</a> /
-                        <a href="./files/acpr_paper.bib">BibTex</a>
-               <p></p>
-		</p><p></p><p></p>
-              </td>
-            </tr>
-                     <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody><tr>
-              <td>
-                <heading>Workshops</heading>
-              </td>
-            </tr>
-          </tbody></table>
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            border-bottom: 2px solid #1772d0;
+            padding-bottom: 6px;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
 
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-		<tbody>
-		   <tr>
-<!--               <td width="25%"><img src="./img/full_system1.png" alt="PontTuset" width="200" style="border-style: none">-->
-	              </td><td width="75%" valign="top">
-	        <a href="https://arxiv.org/abs/2012.00096">
-                <papertitle>Multi-Modal Detection of Alzheimer's Disease from Speech and Text</papertitle></a>
-               <br>Amish Mittal*, <span style="text-decoration: underline;">Sourav Sahoo*</span>, Arnhav Datar*, Juned Kadiwala*, Hrithwik Shalu and Jimson Mathew<br>
-                International Workshop on Data Mining in Bioinformatics (BIOKDD), Virtual, August 2021.<br>
-               <a href="https://arxiv.org/abs/2012.00096">ArXiv</a> /
-               <a href="./files/alzheimers.bib">BibTex</a>
-                <p></p>
-<!--               <p>Reliable detection of the prodromal stages of Alzheimer's disease (AD) remains difficult even today because, unlike other neurocognitive impairments, there is no definitive diagnosis of AD <i>in vivo</i>. In this work, we propose a multimodal deep learning method that utilizes speech and the corresponding transcript simultaneously to detect AD. We also perform experiments to analyze the model performance when Automated Speech Recognition (ASR) system generated transcripts are used instead of manual transcription in the text-based model. The proposed method achieves 85.3% 10-fold cross-validation accuracy when trained and evaluated on the DementiaBank Pitt corpus.-->
-                   <br><small>*Authors contributed equally</small><br>
-		</p><p></p>
-                <p></p>
-              </td>
-            </tr>
+        .publication {
+            margin-bottom: 16px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 6px;
+            border-left: 3px solid #1772d0;
+        }
 
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody><tr>
-              <td>
-                <heading>Other Projects</heading>
-              </td>
-            </tr>
-          </tbody></table>
+        .paper-title {
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 5px;
+            line-height: 1.25;
+        }
 
-          <table width="100%" align="center" border="0" cellpadding="20">
-            <tbody><tr>
+        .paper-title a {
+            color: #333;
+        }
 
-<!--                          <td width="25%"><img src="./img/fastlr.png" alt="PontTuset" width="200" style="border-style: none">-->
-	              </td><td width="75%" valign="top">
-	                <p><a href="#">
-	<papertitle>SVRG-SO: SVRG for Stochastic Optimization</papertitle></a>
-                        <br>Sourav Sahoo<br>
-                        CS6515 Final Project<br>
-                        <a href="./files/cs6515_project.pdf">Report</a>
-                </p><p></p>
-                </p><p></p>
-                <p></p>
-              </td>
-            </tr>
+        .paper-title a:hover {
+            color: #1772d0;
+        }
 
-            </td><td width="75%" valign="top">
-	                <p><a href="#">
-	<papertitle>Convergence and Implicit Regularization of Stochastic Mirror Descent in Overparameterized Models</papertitle></a>
-                        <br>Sourav Sahoo<br>
-                        EE5121 Term Paper<br>
-                        <a href="./files/ee_5121_term_paper.pdf">Report</a> /
-                        <a href="https://github.com/sourav22899/ee5121-convex/tree/master/term-paper">Code</a>
-                </p><p></p>
-<!--                <p> Stochastic Mirror Descent (SMD) algorithms comprise a family of algorithms that are increasingly being used in multiple domains such as machine learning, optimization, signal processing, and control. Like Stochastic Gradient Descent (SGD), SMD algorithms perform updates along the negative gradient of a stochastically chosen loss function. However, instead of performing updates directly on the objective parameter, updates are performed in a "mirror domain" whose transformation is given by the gradient of a strictly convex function. In this work, we explicitly shed some light on <i>convergence</i> and <i>implicit regularization</i> due to stochastic mirror descent in overparameterized linear and non-linear models.-->
-                </p><p></p>
-                <p></p>
-              </td>
-            </tr>
+        .authors {
+            margin-bottom: 5px;
+            font-style: italic;
+            font-size: 16px;
+            line-height: 1.25;
+        }
 
-	            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody><tr>
-              <td>
-<div style="text-align: left;"><script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5fz2vvb1pjx&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33" async="async"></script>
-              </td>
-            </tr>
-          </tbody></table>
-</body></html>
+        .venue {
+            margin-bottom: 6px;
+            color: #666;
+            font-size: 16px;
+            line-height: 1.25;
+        }
 
+        .paper-links a {
+            margin-right: 12px;
+            padding: 4px 10px;
+            background: rgba(23, 114, 208, 0.1);
+            border-radius: 4px;
+            font-size: 15px;
+        }
+
+        .news-item {
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            font-size: 17px;
+            line-height: 1;
+        }
+
+        .news-date {
+            font-weight: 600;
+            color: #1772d0;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+
+        .equal-contrib {
+            font-size: 15px;
+            color: #666;
+            font-style: italic;
+            line-height: 1.3;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .name {
+                font-size: 32px;
+            }
+
+            .contact-links {
+                justify-content: center;
+            }
+
+            body {
+                font-size: 18px;
+            }
+
+            .bio {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="profile-info">
+                <h1 class="name">Sourav Sahoo</h1>
+                <div class="bio">
+                    I am a second-year PhD student at the <a href="https://orc.mit.edu/">Operations Research Center</a> at <a href="https://mit.edu/">MIT</a> advised by <a href="https://www.mit.edu/~golrezae/">Prof. Negin Golrezaei</a>. I graduated with a dual degree (B.Tech + M.Tech) from the Department of <a href="http://www.ee.iitm.ac.in/">Electrical Engineering</a> at the <a href="https://www.iitm.ac.in/">Indian Institute of Technology Madras, Chennai</a> where I was fortunate to be advised by <a href="https://www.tifr.res.in/~abhishek.sinha/">Prof. Abhishek Sinha</a>. My primary research interests are online learning, game theory and market design.
+                </div>
+                <div class="contact-links">
+                    <a href="mailto:sahoo.sourav1999@gmail.com">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    </a>
+                    <a href="https://scholar.google.co.in/citations?hl=en&authuser=1&user=IWZJF8wAAAAJ">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/sourav-sahoo-68a07615a/">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                    </a>
+                    <a href="https://twitter.com/sourav22899">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="https://github.com/sourav22899">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://sourav22899.github.io/files/cv_updated.pdf">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="profile-image">
+                <img src="./img/profile_pic2.jpeg" alt="Sourav Sahoo's Profile Picture">
+            </div>
+        </header>
+
+        <!-- News Section -->
+        <section class="section">
+            <h2 class="section-title">News</h2>
+            <div class="news-item">
+                <span class="news-date">[2025.05]</span> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5271846">Learning Safe Strategies for Value Maximizing Buyers in Uniform Price Auctions</a> accepted at <a href="https://icml.cc/">ICML 2025</a>.
+            </div>
+            <div class="news-item">
+                <span class="news-date">[2023.09]</span> Started PhD at MIT!
+            </div>
+            <div class="news-item">
+                <span class="news-date">[2022.07]</span> Graduated from IIT Madras!
+            </div>
+            <div class="news-item">
+                <span class="news-date">[2022.02]</span> <a href="https://arxiv.org/abs/2109.12340">Distributed Online Optimization with Byzantine Adversarial Agents</a> accepted at <a href="https://acc2022.a2c2.org/">ACC 2022</a>.
+            </div>
+            <div class="news-item">
+                <span class="news-date">[2022.01]</span> <a href="https://arxiv.org/abs/2110.07881">k-experts: Online Policies and Fundamental Limits</a> accepted at <a href="https://aistats.org/aistats2022/">AISTATS 2022</a>.
+            </div>
+        </section>
+
+        <!-- Preprints Section -->
+<!--        <section class="section">-->
+<!--            <h2 class="section-title">Preprints</h2>-->
+
+<!--            <article class="publication">-->
+<!--                <div class="paper-title">-->
+<!--                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5271846">Learning Safe Strategies for Value Maximizing Buyers in Uniform Price Auctions</a>-->
+<!--                </div>-->
+<!--                <div class="authors">-->
+<!--                    Negin Golrezaei and <span class="underline">Sourav Sahoo</span>-->
+<!--                </div>-->
+<!--                <div class="paper-links">-->
+<!--                    <a href="https://arxiv.org/abs/2406.03674">Slides</a>-->
+<!--                </div>-->
+<!--            </article>-->
+
+<!--&lt;!&ndash;            <article class="publication">&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="paper-title">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a href="https://arxiv.org/abs/2209.14222">Online Subset Selection using α-Core with no Augmented Regret</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="authors">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <span class="underline">Sourav Sahoo</span>, Siddhant Chaudhary, Samrat Mukhopadhyay, and Abhishek Sinha&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="paper-links">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a href="https://arxiv.org/abs/2209.14222">ArXiv</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            </article>&ndash;&gt;-->
+<!--        </section>-->
+
+        <!-- Conference Publications Section -->
+        <section class="section">
+            <h2 class="section-title">Conferences</h2>
+
+            <article class="publication">
+                <div class="paper-title">
+                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5271846">Learning Safe Strategies for Value Maximizing Buyers in Uniform Price Auctions</a>
+                </div>
+                <div class="authors">
+                    Negin Golrezaei and <span class="underline">Sourav Sahoo</span>
+                </div>
+                <div class="venue">
+                    ICML 2025, 42nd International Conference on Machine Learning
+                </div>
+                <div class="paper-links">
+                    <a href="https://www.dropbox.com/scl/fi/uu4s1s6m1iy25ub7mmp6b/pdf_uniform_price_auctions_GE.pdf?rlkey=1nxvaaqgvwh4eknb4aubi12ec&st=pnsas00k&dl=0">Slides</a>
+                </div>
+            </article>
+
+            <article class="publication">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2109.12340">Distributed Online Optimization with Byzantine Adversarial Agents</a>
+                </div>
+                <div class="authors">
+                    <span class="underline">Sourav Sahoo</span>, Anand Gokhale and Rachel Kalpana Kalaimani
+                </div>
+                <div class="venue">
+                    ACC 2022, 41st American Control Conference
+                </div>
+            </article>
+
+            <article class="publication">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2110.07881">k-experts: Online Policies and Fundamental Limits</a>
+                </div>
+                <div class="authors">
+                    Samrat Mukhopadhyay, <span class="underline">Sourav Sahoo</span>, and Abhishek Sinha
+                </div>
+                <div class="venue">
+                    AISTATS 2022, 25th International Conference on Artificial Intelligence and Statistics
+                </div>
+                <div class="paper-links">
+                    <a href="https://github.com/sourav22899/k-sets-problem">Code</a>
+                </div>
+            </article>
+
+            <article class="publication">
+                <div class="paper-title">
+                    <a href="https://link.springer.com/chapter/10.1007/978-3-030-41299-9_34">A Segment Level Approach to Speech Emotion Recognition using Transfer Learning</a>
+                </div>
+                <div class="authors">
+                    <span class="underline">Sourav Sahoo</span>, Puneet Kumar, Balasubramanian Raman and Partha Pratim Roy
+                </div>
+                <div class="venue">
+                    ACPR 2019, 5th Asian Conference on Pattern Recognition
+                </div>
+                <div class="paper-links">
+                    <a href="https://github.com/sourav22899/segment-ser">Code</a>
+                </div>
+            </article>
+        </section>
+
+        <!-- Workshop Publications Section -->
+        <section class="section">
+            <h2 class="section-title">Workshops</h2>
+
+            <article class="publication">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2012.00096">Multi-Modal Detection of Alzheimer's Disease from Speech and Text</a>
+                </div>
+                <div class="authors">
+                    Amish Mittal*, <span class="underline">Sourav Sahoo*</span>, Arnhav Datar*, Juned Kadiwala*, Hrithwik Shalu and Jimson Mathew
+                </div>
+                <div class="venue">
+                    BIOKDD 2021, 20th International Workshop on Data Mining in Bioinformatics
+                </div>
+                <div class="equal-contrib">*Authors contributed equally</div>
+            </article>
+        </section>
+
+        <!-- Other Projects Section -->
+        <section class="section">
+            <h2 class="section-title">Other Projects</h2>
+
+            <article class="publication">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2209.14222">Online Subset Selection using α-Core with no Augmented Regret</a>
+                </div>
+                <div class="authors">
+                    <span class="underline">Sourav Sahoo</span>, Siddhant Chaudhary, Samrat Mukhopadhyay, and Abhishek Sinha
+                </div>
+            </article>
+
+            <article class="publication">
+                <div class="paper-title">
+                    <a href="https://sourav22899.github.io/files/cs6515_project.pdf">SVRG-SO: SVRG for Stochastic Optimization</a>
+                </div>
+                <div class="authors">
+                    Sourav Sahoo
+                </div>
+            </article>
+
+            <article class="publication">
+                <div class="paper-title">
+                    <a href="https://sourav22899.github.io/files/ee_5121_term_paper.pdf">Convergence and Implicit Regularization of Stochastic Mirror Descent in Overparameterized Models</a>
+                </div>
+                <div class="authors">
+                    Sourav Sahoo
+                </div>
+                <div class="paper-links">
+                    <a href="https://github.com/sourav22899/ee5121-convex/tree/master/term-paper">Code</a>
+                </div>
+            </article>
+        </section>
+    </div>
+</body>
+</html>
