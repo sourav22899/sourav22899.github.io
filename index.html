@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sourav Sahoo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&family=Optima:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Optima:wght@400;600&display=swap" rel="stylesheet">
     <style>
         /* CSS Variables for theme colors */
         :root {
-            --bg-color: #ffffe0;
+            --bg-color: #f8f9fa;
             --text-color: #333;
             --text-secondary: #666;
             --accent-color: #1772d0;
             --accent-hover: #f09228;
-            --card-bg: rgba(255, 255, 255, 0.25);
+            --card-bg: rgba(255, 255, 255, 0.6);
             --card-border: rgba(255, 255, 255, 0.2);
             --button-bg: rgba(23, 114, 208, 0.08);
             --button-hover: rgba(23, 114, 208, 0.15);
-            --news-bg: rgba(255, 255, 255, 0.2);
+            --news-bg: rgba(255, 255, 255, 0.4);
         }
 
         [data-theme="dark"] {
@@ -35,13 +35,13 @@
 
         /* Color scheme and typography */
         body {
-            font-family: "Optima", "Gill Sans", "Gill Sans MT", "Helvetica", "Lato", "Verdana", sans-serif;
+            font-family: "Optima", "Gill Sans", "Gill Sans MT", "Helvetica Neue", sans-serif;
             font-size: 20px;
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
             padding: 15px;
-            line-height: 1.3;
+            line-height: 1.4;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
@@ -257,6 +257,14 @@
             line-height: 1.3;
         }
 
+        .awards {
+            margin-top: 6px;
+            font-size: 15px;
+            color: var(--accent-color);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
         /* Responsive design */
         @media (max-width: 768px) {
             .header {
@@ -303,7 +311,7 @@
             <div class="profile-info">
                 <h1 class="name">Sourav Sahoo</h1>
                 <div class="bio">
-                    I am a second-year PhD student at the <a href="https://orc.mit.edu/">Operations Research Center</a> at <a href="https://mit.edu/">MIT</a> advised by <a href="https://www.mit.edu/~golrezae/">Prof. Negin Golrezaei</a>. I graduated with a dual degree (B.Tech + M.Tech) from the Department of <a href="http://www.ee.iitm.ac.in/">Electrical Engineering</a> at the <a href="https://www.iitm.ac.in/">Indian Institute of Technology Madras, Chennai</a> where I was fortunate to be advised by <a href="https://www.tifr.res.in/~abhishek.sinha/">Prof. Abhishek Sinha</a>. My primary research interests are online learning, game theory and market design.
+                    I am a third-year PhD student at the <a href="https://orc.mit.edu/">Operations Research Center</a> at <a href="https://mit.edu/">MIT</a> advised by <a href="https://www.mit.edu/~golrezae/">Prof. Negin Golrezaei</a>. I graduated with a dual degree (B.Tech + M.Tech) from the Department of <a href="http://www.ee.iitm.ac.in/">Electrical Engineering</a> at the <a href="https://www.iitm.ac.in/">Indian Institute of Technology Madras, Chennai</a> where I was fortunate to be advised by <a href="https://www.tifr.res.in/~abhishek.sinha/">Prof. Abhishek Sinha</a>. My primary research interests are online learning, game theory and market design.
                 </div>
                 <div class="contact-links">
                     <a href="mailto:sahoo.sourav1999@gmail.com">
@@ -364,6 +372,12 @@
                 </div>
                 <div class="venue">
                     ICML 2025, 42nd International Conference on Machine Learning
+                </div>
+                <div class="awards">
+                    🏆 Finalist for 2025 Michael H. Rothkopf Junior Researcher Paper Prize
+                </div>
+                <div class="awards">
+                    🏆 Finalist for 2025 Jeff McGill RMP Best Student Paper Prize
                 </div>
                 <div class="paper-links">
                     <a href="https://www.dropbox.com/scl/fi/uu4s1s6m1iy25ub7mmp6b/pdf_uniform_price_auctions_GE.pdf?rlkey=1nxvaaqgvwh4eknb4aubi12ec&st=pnsas00k&dl=0">Slides</a>
@@ -479,16 +493,20 @@
         // Moon icon SVG
         const moonIcon = `<path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>`;
 
-        // Check for saved theme preference or default to 'light'
-        const currentTheme = localStorage.getItem('theme') || 'light';
+        // Detect user's system preference
+        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-        // Apply the saved theme
+        // Check for saved theme preference or use system preference
+        const savedTheme = localStorage.getItem('theme');
+        const currentTheme = savedTheme || (prefersDarkMode ? 'dark' : 'light');
+
+        // Apply the theme (icons are flipped: show moon in light mode, sun in dark mode)
         if (currentTheme === 'dark') {
             body.setAttribute('data-theme', 'dark');
-            themeIcon.innerHTML = moonIcon;
+            themeIcon.innerHTML = sunIcon;  // Show sun icon in dark mode (to switch to light)
         } else {
             body.removeAttribute('data-theme');
-            themeIcon.innerHTML = sunIcon;
+            themeIcon.innerHTML = moonIcon;  // Show moon icon in light mode (to switch to dark)
         }
 
         // Theme toggle event listener
@@ -496,14 +514,14 @@
             // Add rotation effect
             themeToggle.classList.add('rotating');
 
-            // Toggle theme
+            // Toggle theme (icons flipped: moon in light, sun in dark)
             if (body.getAttribute('data-theme') === 'dark') {
                 body.removeAttribute('data-theme');
-                themeIcon.innerHTML = sunIcon;
+                themeIcon.innerHTML = moonIcon;  // Show moon in light mode
                 localStorage.setItem('theme', 'light');
             } else {
                 body.setAttribute('data-theme', 'dark');
-                themeIcon.innerHTML = moonIcon;
+                themeIcon.innerHTML = sunIcon;  // Show sun in dark mode
                 localStorage.setItem('theme', 'dark');
             }
 
@@ -518,6 +536,20 @@
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 themeToggle.click();
+            }
+        });
+
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            // Only apply system preference if user hasn't manually set a theme
+            if (!localStorage.getItem('theme')) {
+                if (e.matches) {
+                    body.setAttribute('data-theme', 'dark');
+                    themeIcon.innerHTML = sunIcon;
+                } else {
+                    body.removeAttribute('data-theme');
+                    themeIcon.innerHTML = moonIcon;
+                }
             }
         });
     </script>
