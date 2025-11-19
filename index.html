@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Academic website of Sourav Sahoo, PhD student at MIT Operations Research Center. Research interests include online learning, game theory, and market design.">
+    <meta name="keywords" content="Sourav Sahoo, MIT, PhD, Operations Research, Game Theory, Online Learning, Machine Learning">
+    <meta name="author" content="Sourav Sahoo">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Sourav Sahoo - PhD Student at MIT">
+    <meta property="og:description" content="Academic website of Sourav Sahoo. Research interests: online learning, game theory, and market design.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./img/profile_pic2.jpeg">
+
     <title>Sourav Sahoo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Optima:wght@400;600&display=swap" rel="stylesheet">
     <style>
         /* CSS Variables for theme colors */
         :root {
@@ -35,7 +46,7 @@
 
         /* Color scheme and typography */
         body {
-            font-family: "Optima", "Gill Sans", "Gill Sans MT", "Helvetica Neue", sans-serif;
+            font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
             font-size: 20px;
             background-color: var(--bg-color);
             color: var(--text-color);
@@ -159,6 +170,7 @@
             transition: all 0.2s ease;
             width: 44px;
             height: 44px;
+            cursor: pointer;
         }
 
         .contact-links a:hover {
@@ -225,10 +237,15 @@
 
         .paper-links a {
             margin-right: 12px;
-            padding: 4px 10px;
+            padding: 8px 14px;
+            display: inline-block;
             background: var(--button-bg);
             border-radius: 4px;
             font-size: 15px;
+        }
+
+        .paper-links a:hover {
+            background: var(--button-hover);
         }
 
         .news-item {
@@ -237,8 +254,12 @@
             background: var(--news-bg);
             border-radius: 4px;
             font-size: 17px;
-            line-height: 1;
+            line-height: 1.5;
             transition: background-color 0.3s ease;
+        }
+
+        .news-item:hover {
+            background-color: var(--button-hover);
         }
 
         .news-date {
@@ -314,22 +335,22 @@
                     I am a third-year PhD student at the <a href="https://orc.mit.edu/">Operations Research Center</a> at <a href="https://mit.edu/">MIT</a> advised by <a href="https://www.mit.edu/~golrezae/">Prof. Negin Golrezaei</a>. I graduated with a dual degree (B.Tech + M.Tech) from the Department of <a href="http://www.ee.iitm.ac.in/">Electrical Engineering</a> at the <a href="https://www.iitm.ac.in/">Indian Institute of Technology Madras, Chennai</a> where I was fortunate to be advised by <a href="https://www.tifr.res.in/~abhishek.sinha/">Prof. Abhishek Sinha</a>. My primary research interests are online learning, game theory and market design.
                 </div>
                 <div class="contact-links">
-                    <a href="mailto:sahoo.sourav1999@gmail.com">
+                    <a id="emailLink" aria-label="Email Me" tabindex="0">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                     </a>
-                    <a href="https://scholar.google.co.in/citations?hl=en&authuser=1&user=IWZJF8wAAAAJ">
+                    <a href="https://scholar.google.co.in/citations?hl=en&authuser=1&user=IWZJF8wAAAAJ" aria-label="Google Scholar Profile">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
                     </a>
-                    <a href="https://www.linkedin.com/in/sourav-sahoo-68a07615a/">
+                    <a href="https://www.linkedin.com/in/sourav-sahoo-68a07615a/" aria-label="LinkedIn Profile">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
                     </a>
-                    <a href="https://twitter.com/sourav22899">
+                    <a href="https://twitter.com/sourav22899" aria-label="Twitter Profile">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                     </a>
-                    <a href="https://github.com/sourav22899">
+                    <a href="https://github.com/sourav22899" aria-label="GitHub Profile">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                     </a>
-                    <a href="https://sourav22899.github.io/files/cv_updated.pdf">
+                    <a href="https://sourav22899.github.io/files/cv_updated.pdf" aria-label="Download CV">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/></svg>
                     </a>
                 </div>
@@ -374,7 +395,7 @@
                     ICML 2025, 42nd International Conference on Machine Learning
                 </div>
                 <div class="awards">
-                    🏆 First Place, 2025 Jeff McGill RMP Best Student Paper Prize
+                    🏆 First Place, 2025 RMP Jeff McGill Student Paper Award
                 </div>
                 <div class="awards">
                     🏆 Second Place, 2025 Michael H. Rothkopf Junior Researcher Paper Prize
@@ -500,32 +521,29 @@
         const savedTheme = localStorage.getItem('theme');
         const currentTheme = savedTheme || (prefersDarkMode ? 'dark' : 'light');
 
-        // Apply the theme (icons are flipped: show moon in light mode, sun in dark mode)
+        // Apply the theme
         if (currentTheme === 'dark') {
             body.setAttribute('data-theme', 'dark');
-            themeIcon.innerHTML = sunIcon;  // Show sun icon in dark mode (to switch to light)
+            themeIcon.innerHTML = sunIcon;
         } else {
             body.removeAttribute('data-theme');
-            themeIcon.innerHTML = moonIcon;  // Show moon icon in light mode (to switch to dark)
+            themeIcon.innerHTML = moonIcon;
         }
 
         // Theme toggle event listener
         themeToggle.addEventListener('click', function() {
-            // Add rotation effect
             themeToggle.classList.add('rotating');
 
-            // Toggle theme (icons flipped: moon in light, sun in dark)
             if (body.getAttribute('data-theme') === 'dark') {
                 body.removeAttribute('data-theme');
-                themeIcon.innerHTML = moonIcon;  // Show moon in light mode
+                themeIcon.innerHTML = moonIcon;
                 localStorage.setItem('theme', 'light');
             } else {
                 body.setAttribute('data-theme', 'dark');
-                themeIcon.innerHTML = sunIcon;  // Show sun in dark mode
+                themeIcon.innerHTML = sunIcon;
                 localStorage.setItem('theme', 'dark');
             }
 
-            // Remove rotation effect after animation
             setTimeout(() => {
                 themeToggle.classList.remove('rotating');
             }, 300);
@@ -541,7 +559,6 @@
 
         // Listen for system theme changes
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-            // Only apply system preference if user hasn't manually set a theme
             if (!localStorage.getItem('theme')) {
                 if (e.matches) {
                     body.setAttribute('data-theme', 'dark');
@@ -552,6 +569,24 @@
                 }
             }
         });
+
+        // Email Obfuscation Logic
+        const emailLink = document.getElementById('emailLink');
+        if (emailLink) {
+            emailLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                const user = 'sahoo.sourav1999';
+                const domain = 'gmail.com';
+                window.location.href = `mailto:${user}@${domain}`;
+            });
+
+            emailLink.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        }
     </script>
 </body>
 </html>
