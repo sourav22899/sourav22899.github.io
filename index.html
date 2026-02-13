@@ -4,16 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Prevent theme flash: apply saved/system theme before paint -->
+    <script>
+        (function() {
+            var saved = localStorage.getItem('theme');
+            var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        })();
+    </script>
+
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Academic website of Sourav Sahoo, PhD student at MIT Operations Research Center. Research interests include online learning, game theory, and market design.">
-    <meta name="keywords" content="Sourav Sahoo, MIT, PhD, Operations Research, Game Theory, Online Learning, Machine Learning">
+    <meta name="description" content="Academic website of Sourav Sahoo, PhD student at MIT Operations Research Center. Research interests include online learning, auctions, operations research, and economics.">
+    <meta name="keywords" content="Sourav Sahoo, MIT, PhD, Operations Research, Online Learning, Auctions, Economics, Computer Science">
     <meta name="author" content="Sourav Sahoo">
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Sourav Sahoo - PhD Student at MIT">
-    <meta property="og:description" content="Academic website of Sourav Sahoo. Research interests: online learning, game theory, and market design.">
+    <meta property="og:description" content="Academic website of Sourav Sahoo. Research interests: online learning, auctions, operations research, and economics.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="./img/profile_pic2.jpeg">
+    <meta property="og:image" content="https://sourav22899.github.io/img/profile_pic2.jpeg">
 
     <title>Sourav Sahoo</title>
     <style>
@@ -31,7 +40,9 @@
             --news-bg: rgba(255, 255, 255, 0.4);
         }
 
-        [data-theme="dark"] {
+        /* Move data-theme to html element for flash prevention */
+        [data-theme="dark"],
+        [data-theme="dark"] body {
             --bg-color: #1a1a1a;
             --text-color: #e0e0e0;
             --text-secondary: #b0b0b0;
@@ -145,7 +156,7 @@
 
         .bio {
             margin-bottom: 12px;
-            text-align: justify;
+            text-align: left;
             font-size: 18px;
             line-height: 1.35;
         }
@@ -286,6 +297,16 @@
             line-height: 1.4;
         }
 
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid var(--card-border);
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
         /* Responsive design */
         @media (max-width: 768px) {
             .header {
@@ -332,31 +353,34 @@
             <div class="profile-info">
                 <h1 class="name">Sourav Sahoo</h1>
                 <div class="bio">
-                    I am a third-year PhD student at the <a href="https://orc.mit.edu/">Operations Research Center</a> at <a href="https://mit.edu/">MIT</a> advised by <a href="https://www.mit.edu/~golrezae/">Prof. Negin Golrezaei</a>. I graduated with a dual degree (B.Tech + M.Tech) from the Department of <a href="http://www.ee.iitm.ac.in/">Electrical Engineering</a> at the <a href="https://www.iitm.ac.in/">Indian Institute of Technology Madras, Chennai</a> where I was fortunate to be advised by <a href="https://www.tifr.res.in/~abhishek.sinha/">Prof. Abhishek Sinha</a>. My primary research interests are online learning, game theory and market design.
+                    I am a third-year PhD student at the <a href="https://orc.mit.edu/" target="_blank" rel="noopener noreferrer">MIT Operations Research Center</a>, where I am advised by <a href="https://www.mit.edu/~golrezae/" target="_blank" rel="noopener noreferrer">Prof. Negin Golrezaei</a>. My research interests lie at the intersection of computer science, operations research, and economics, with a current focus on online learning and auctions.
+                </div>
+                <div class="bio">
+                    Previously, I earned my Dual Degree (B.Tech &amp; M.Tech) in <a href="http://www.ee.iitm.ac.in/" target="_blank" rel="noopener noreferrer">Electrical Engineering</a> from <a href="https://www.iitm.ac.in/" target="_blank" rel="noopener noreferrer">Indian Institute of Technology Madras</a>, advised by <a href="https://www.tifr.res.in/~abhishek.sinha/" target="_blank" rel="noopener noreferrer">Prof. Abhishek Sinha</a>.
                 </div>
                 <div class="contact-links">
                     <a id="emailLink" aria-label="Email Me" tabindex="0">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                     </a>
-                    <a href="https://scholar.google.co.in/citations?hl=en&authuser=1&user=IWZJF8wAAAAJ" aria-label="Google Scholar Profile">
+                    <a href="https://scholar.google.co.in/citations?hl=en&authuser=1&user=IWZJF8wAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar Profile">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
                     </a>
-                    <a href="https://www.linkedin.com/in/sourav-sahoo-68a07615a/" aria-label="LinkedIn Profile">
+                    <a href="https://www.linkedin.com/in/sourav-sahoo-68a07615a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
                     </a>
-                    <a href="https://twitter.com/sourav22899" aria-label="Twitter Profile">
+                    <a href="https://twitter.com/sourav22899" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                     </a>
-                    <a href="https://github.com/sourav22899" aria-label="GitHub Profile">
+                    <a href="https://github.com/sourav22899" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                     </a>
-                    <a href="https://sourav22899.github.io/files/cv_updated.pdf" aria-label="Download CV">
+                    <a href="https://sourav22899.github.io/files/cv_updated.pdf" target="_blank" rel="noopener noreferrer" aria-label="Download CV">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/></svg>
                     </a>
                 </div>
             </div>
             <div class="profile-image">
-                <img src="./img/profile_pic2.jpeg" alt="Sourav Sahoo's Profile Picture">
+                <img src="./img/profile_pic2.jpeg" alt="Sourav Sahoo's Profile Picture" loading="lazy">
             </div>
         </header>
 
@@ -364,7 +388,10 @@
         <section class="section">
             <h2 class="section-title">News</h2>
             <div class="news-item">
-                <span class="news-date">[2025.05]</span> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5271846">Learning Safe Strategies for Value Maximizing Buyers in Uniform Price Auctions</a> accepted at <a href="https://icml.cc/">ICML 2025</a>.
+                <span class="news-date">[2026.01]</span> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6145788" target="_blank" rel="noopener noreferrer">Learning to Bid in Discriminatory Auctions with Budget Constraints</a> accepted at <a href="https://aistats.org/aistats2026/" target="_blank" rel="noopener noreferrer">AISTATS 2026</a> as a spotlight presentation.
+            </div>
+            <div class="news-item">
+                <span class="news-date">[2025.05]</span> <a href="https://proceedings.mlr.press/v267/golrezaei25a.html" target="_blank" rel="noopener noreferrer">Learning Safe Strategies for Value Maximizing Buyers in Uniform Price Auctions</a> accepted at <a href="https://icml.cc/" target="_blank" rel="noopener noreferrer">ICML 2025</a>.
             </div>
             <div class="news-item">
                 <span class="news-date">[2023.09]</span> Started PhD at MIT!
@@ -373,11 +400,42 @@
                 <span class="news-date">[2022.07]</span> Graduated from IIT Madras!
             </div>
             <div class="news-item">
-                <span class="news-date">[2022.02]</span> <a href="https://arxiv.org/abs/2109.12340">Distributed Online Optimization with Byzantine Adversarial Agents</a> accepted at <a href="https://acc2022.a2c2.org/">ACC 2022</a>.
+                <span class="news-date">[2022.02]</span> <a href="https://arxiv.org/abs/2109.12340" target="_blank" rel="noopener noreferrer">Distributed Online Optimization with Byzantine Adversarial Agents</a> accepted at <a href="https://acc2022.a2c2.org/" target="_blank" rel="noopener noreferrer">ACC 2022</a>.
             </div>
+            <!--
             <div class="news-item">
-                <span class="news-date">[2022.01]</span> <a href="https://arxiv.org/abs/2110.07881">k-experts: Online Policies and Fundamental Limits</a> accepted at <a href="https://aistats.org/aistats2022/">AISTATS 2022</a>.
+                <span class="news-date">[2022.01]</span> <a href="https://arxiv.org/abs/2110.07881" target="_blank" rel="noopener noreferrer">k-experts: Online Policies and Fundamental Limits</a> accepted at <a href="https://aistats.org/aistats2022/" target="_blank" rel="noopener noreferrer">AISTATS 2022</a>.
             </div>
+            -->
+        </section>
+
+        <!-- Working Papers Section -->
+        <section class="section">
+            <h2 class="section-title">Working Papers</h2>
+
+            <article class="publication">
+                <div class="paper-title">
+                    <a href="https://proceedings.mlr.press/v267/golrezaei25a.html" target="_blank" rel="noopener noreferrer">Learning Safe Strategies for Value Maximizing Buyers in Uniform Price Auctions</a>
+                </div>
+                <div class="authors">
+                    Negin Golrezaei and <span class="underline">Sourav Sahoo</span>
+                </div>
+                <div class="venue">
+                    Major Revision, <strong>Management Science</strong>
+                </div>
+                <div class="venue">
+                    ICML 2025, 42nd International Conference on Machine Learning
+                </div>
+                <div class="awards">
+                    🏆 First Place, <a href="https://connect.informs.org/rmp/awards/current-awards/student-award" target="_blank" rel="noopener noreferrer">2025 RMP Jeff McGill Student Paper Award</a>
+                </div>
+                <div class="awards">
+                    🏆 Second Place, <a href="https://connect.informs.org/auctionsandmarketdesign/awards654/awards" target="_blank" rel="noopener noreferrer">2025 Michael H. Rothkopf Junior Researcher Paper Prize</a>
+                </div>
+                <div class="paper-links">
+                    <a href="https://www.dropbox.com/scl/fi/uu4s1s6m1iy25ub7mmp6b/pdf_uniform_price_auctions_GE.pdf?rlkey=1nxvaaqgvwh4eknb4aubi12ec&st=pnsas00k&dl=0" target="_blank" rel="noopener noreferrer">Slides</a>
+                </div>
+            </article>
         </section>
 
         <!-- Conference Publications Section -->
@@ -386,28 +444,22 @@
 
             <article class="publication">
                 <div class="paper-title">
-                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5271846">Learning Safe Strategies for Value Maximizing Buyers in Uniform Price Auctions</a>
+                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6145788" target="_blank" rel="noopener noreferrer">Learning to Bid in Discriminatory Auctions with Budget Constraints</a>
                 </div>
                 <div class="authors">
                     Negin Golrezaei and <span class="underline">Sourav Sahoo</span>
                 </div>
                 <div class="venue">
-                    ICML 2025, 42nd International Conference on Machine Learning
+                    AISTATS 2026, 29th International Conference on Artificial Intelligence and Statistics
                 </div>
                 <div class="awards">
-                    🏆 First Place, 2025 RMP Jeff McGill Student Paper Award
-                </div>
-                <div class="awards">
-                    🏆 Second Place, 2025 Michael H. Rothkopf Junior Researcher Paper Prize
-                </div>
-                <div class="paper-links">
-                    <a href="https://www.dropbox.com/scl/fi/uu4s1s6m1iy25ub7mmp6b/pdf_uniform_price_auctions_GE.pdf?rlkey=1nxvaaqgvwh4eknb4aubi12ec&st=pnsas00k&dl=0">Slides</a>
+                    ⭐ Spotlight Presentation (top 3%)
                 </div>
             </article>
 
             <article class="publication">
                 <div class="paper-title">
-                    <a href="https://ieeexplore.ieee.org/document/9867506">Distributed Online Optimization with Byzantine Adversarial Agents</a>
+                    <a href="https://ieeexplore.ieee.org/document/9867506" target="_blank" rel="noopener noreferrer">Distributed Online Optimization with Byzantine Adversarial Agents</a>
                 </div>
                 <div class="authors">
                     <span class="underline">Sourav Sahoo</span>, Anand Gokhale and Rachel Kalpana Kalaimani
@@ -419,7 +471,7 @@
 
             <article class="publication">
                 <div class="paper-title">
-                    <a href="https://proceedings.mlr.press/v151/mukhopadhyay22a.html">k-experts: Online Policies and Fundamental Limits</a>
+                    <a href="https://proceedings.mlr.press/v151/mukhopadhyay22a.html" target="_blank" rel="noopener noreferrer">k-experts: Online Policies and Fundamental Limits</a>
                 </div>
                 <div class="authors">
                     Samrat Mukhopadhyay, <span class="underline">Sourav Sahoo</span>, and Abhishek Sinha
@@ -428,13 +480,13 @@
                     AISTATS 2022, 25th International Conference on Artificial Intelligence and Statistics
                 </div>
                 <div class="paper-links">
-                    <a href="https://github.com/sourav22899/k-sets-problem">Code</a>
+                    <a href="https://github.com/sourav22899/k-sets-problem" target="_blank" rel="noopener noreferrer">Code</a>
                 </div>
             </article>
 
             <article class="publication">
                 <div class="paper-title">
-                    <a href="https://link.springer.com/chapter/10.1007/978-3-030-41299-9_34">A Segment Level Approach to Speech Emotion Recognition using Transfer Learning</a>
+                    <a href="https://link.springer.com/chapter/10.1007/978-3-030-41299-9_34" target="_blank" rel="noopener noreferrer">A Segment Level Approach to Speech Emotion Recognition using Transfer Learning</a>
                 </div>
                 <div class="authors">
                     <span class="underline">Sourav Sahoo</span>, Puneet Kumar, Balasubramanian Raman and Partha Pratim Roy
@@ -443,7 +495,7 @@
                     ACPR 2019, 5th Asian Conference on Pattern Recognition
                 </div>
                 <div class="paper-links">
-                    <a href="https://github.com/sourav22899/segment-ser">Code</a>
+                    <a href="https://github.com/sourav22899/segment-ser" target="_blank" rel="noopener noreferrer">Code</a>
                 </div>
             </article>
         </section>
@@ -454,7 +506,7 @@
 
             <article class="publication">
                 <div class="paper-title">
-                    <a href="https://arxiv.org/abs/2012.00096">Multi-Modal Detection of Alzheimer's Disease from Speech and Text</a>
+                    <a href="https://arxiv.org/abs/2012.00096" target="_blank" rel="noopener noreferrer">Multi-Modal Detection of Alzheimer's Disease from Speech and Text</a>
                 </div>
                 <div class="authors">
                     Amish Mittal*, <span class="underline">Sourav Sahoo*</span>, Arnhav Datar*, Juned Kadiwala*, Hrithwik Shalu and Jimson Mathew
@@ -466,13 +518,13 @@
             </article>
         </section>
 
-        <!-- Other Projects Section -->
+        <!--
         <section class="section">
             <h2 class="section-title">Other Projects</h2>
 
             <article class="publication">
                 <div class="paper-title">
-                    <a href="https://arxiv.org/abs/2209.14222">Online Subset Selection using α-Core with no Augmented Regret</a>
+                    <a href="https://arxiv.org/abs/2209.14222" target="_blank" rel="noopener noreferrer">Online Subset Selection using α-Core with no Augmented Regret</a>
                 </div>
                 <div class="authors">
                     <span class="underline">Sourav Sahoo</span>, Siddhant Chaudhary, Samrat Mukhopadhyay, and Abhishek Sinha
@@ -481,7 +533,7 @@
 
             <article class="publication">
                 <div class="paper-title">
-                    <a href="https://sourav22899.github.io/files/cs6515_project.pdf">SVRG-SO: SVRG for Stochastic Optimization</a>
+                    <a href="https://sourav22899.github.io/files/cs6515_project.pdf" target="_blank" rel="noopener noreferrer">SVRG-SO: SVRG for Stochastic Optimization</a>
                 </div>
                 <div class="authors">
                     Sourav Sahoo
@@ -490,23 +542,29 @@
 
             <article class="publication">
                 <div class="paper-title">
-                    <a href="https://sourav22899.github.io/files/ee_5121_term_paper.pdf">Convergence and Implicit Regularization of Stochastic Mirror Descent in Overparameterized Models</a>
+                    <a href="https://sourav22899.github.io/files/ee_5121_term_paper.pdf" target="_blank" rel="noopener noreferrer">Convergence and Implicit Regularization of Stochastic Mirror Descent in Overparameterized Models</a>
                 </div>
                 <div class="authors">
                     Sourav Sahoo
                 </div>
                 <div class="paper-links">
-                    <a href="https://github.com/sourav22899/ee5121-convex/tree/master/term-paper">Code</a>
+                    <a href="https://github.com/sourav22899/ee5121-convex/tree/master/term-paper" target="_blank" rel="noopener noreferrer">Code</a>
                 </div>
             </article>
         </section>
+        -->
+
+        <!-- Footer -->
+        <footer class="footer">
+            © 2025 Sourav Sahoo · Last updated February 2026
+        </footer>
     </div>
 
     <script>
         // Theme toggle functionality
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
-        const body = document.body;
+        const html = document.documentElement;
 
         // Sun icon SVG
         const sunIcon = `<path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>`;
@@ -514,19 +572,10 @@
         // Moon icon SVG
         const moonIcon = `<path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>`;
 
-        // Detect user's system preference
-        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-        // Check for saved theme preference or use system preference
-        const savedTheme = localStorage.getItem('theme');
-        const currentTheme = savedTheme || (prefersDarkMode ? 'dark' : 'light');
-
-        // Apply the theme
-        if (currentTheme === 'dark') {
-            body.setAttribute('data-theme', 'dark');
+        // Set correct icon based on current theme (already applied by head script)
+        if (html.getAttribute('data-theme') === 'dark') {
             themeIcon.innerHTML = sunIcon;
         } else {
-            body.removeAttribute('data-theme');
             themeIcon.innerHTML = moonIcon;
         }
 
@@ -534,12 +583,12 @@
         themeToggle.addEventListener('click', function() {
             themeToggle.classList.add('rotating');
 
-            if (body.getAttribute('data-theme') === 'dark') {
-                body.removeAttribute('data-theme');
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.removeAttribute('data-theme');
                 themeIcon.innerHTML = moonIcon;
                 localStorage.setItem('theme', 'light');
             } else {
-                body.setAttribute('data-theme', 'dark');
+                html.setAttribute('data-theme', 'dark');
                 themeIcon.innerHTML = sunIcon;
                 localStorage.setItem('theme', 'dark');
             }
@@ -561,10 +610,10 @@
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
             if (!localStorage.getItem('theme')) {
                 if (e.matches) {
-                    body.setAttribute('data-theme', 'dark');
+                    html.setAttribute('data-theme', 'dark');
                     themeIcon.innerHTML = sunIcon;
                 } else {
-                    body.removeAttribute('data-theme');
+                    html.removeAttribute('data-theme');
                     themeIcon.innerHTML = moonIcon;
                 }
             }
