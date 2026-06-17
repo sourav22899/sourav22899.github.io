@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Prevent theme flash: apply saved/system theme before paint -->
+    <!-- Prevent theme flash -->
     <script>
         (function() {
             var saved = localStorage.getItem('theme');
@@ -13,600 +13,742 @@
         })();
     </script>
 
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Academic website of Sourav Sahoo, PhD student at MIT Operations Research Center. Research interests include online learning, auctions, operations research, and economics.">
-    <meta name="keywords" content="Sourav Sahoo, MIT, PhD, Operations Research, Online Learning, Auctions, Economics, Computer Science">
+    <meta name="description" content="Sourav Sahoo — PhD student at MIT Operations Research Center. Research on online learning, auctions, and mechanism design.">
     <meta name="author" content="Sourav Sahoo">
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Sourav Sahoo - PhD Student at MIT">
-    <meta property="og:description" content="Academic website of Sourav Sahoo. Research interests: online learning, auctions, operations research, and economics.">
+    <meta property="og:title" content="Sourav Sahoo — MIT ORC">
+    <meta property="og:description" content="PhD student researching online learning, auctions, and mechanism design.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://sourav22899.github.io/img/profile_pic3.jpeg">
 
+    <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1a1a1c" media="(prefers-color-scheme: dark)">
+
     <title>Sourav Sahoo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+Oriya:wght@400;500&display=swap" rel="stylesheet">
+
     <style>
-        /* CSS Variables for theme colors */
         :root {
-            --bg-color: #f8f9fa;
-            --text-color: #333;
-            --text-secondary: #666;
-            --accent-color: #1772d0;
-            --accent-hover: #f09228;
-            --card-bg: rgba(255, 255, 255, 0.6);
-            --card-border: rgba(255, 255, 255, 0.2);
-            --button-bg: rgba(23, 114, 208, 0.08);
-            --button-hover: rgba(23, 114, 208, 0.15);
-            --news-bg: rgba(255, 255, 255, 0.4);
+            --bg: #fbfaf7;
+            --ink: #141414;
+            --ink-muted: #55534e;
+            --ink-faint: #8f8c86;
+            --accent: #1f3a5f;
+            --accent-hover: #152841;
+            --rule: #e4e1d8;
+            --rule-faint: #eeede6;
+            --selection: #d8e2ee;
+
+            --serif: "EB Garamond", "Garamond", "Adobe Garamond Pro", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+
+            --measure: 750px;   /* reading column */
+            --margin-col: 150px; /* label column */
+            --col-gap: 52px;
         }
 
-        /* Move data-theme to html element for flash prevention */
-        [data-theme="dark"],
-        [data-theme="dark"] body {
-            --bg-color: #1a1a1a;
-            --text-color: #e0e0e0;
-            --text-secondary: #b0b0b0;
-            --accent-color: #4a9eff;
-            --accent-hover: #ffa726;
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --card-border: rgba(255, 255, 255, 0.1);
-            --button-bg: rgba(74, 158, 255, 0.1);
-            --button-hover: rgba(74, 158, 255, 0.2);
-            --news-bg: rgba(255, 255, 255, 0.08);
+        [data-theme="dark"] {
+            --bg: #1a1a1c;
+            --ink: #e8e6e0;
+            --ink-muted: #9c9a94;
+            --ink-faint: #686660;
+            --accent: #7ba3d4;
+            --accent-hover: #9bbce3;
+            --rule: #323234;
+            --rule-faint: #29292b;
+            --selection: #1f3147;
         }
 
-        /* Color scheme and typography */
+        *, *::before, *::after { box-sizing: border-box; }
+
+        ::selection { background: var(--selection); color: var(--ink); }
+
+        html {
+            background-color: var(--bg);
+            transition: background-color 300ms ease;
+            scroll-behavior: smooth;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { transition: none !important; }
+        }
+
         body {
-            font-family: "Gill Sans", "Gill Sans MT", "Candara", "Ubuntu", "Cantarell", "Trebuchet MS", sans-serif;
+            font-family: var(--serif);
             font-size: 20px;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            line-height: 1.55;
+            color: var(--ink);
+            background: var(--bg);
             margin: 0;
-            padding: 15px;
-            line-height: 1.4;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            /* Oldstyle figures in running text — the book convention */
+            font-feature-settings: "kern", "liga", "onum";
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            transition: background-color 300ms ease, color 300ms ease;
         }
 
-        .container {
-            max-width: 900px;
+        /* ---------- Accessibility ---------- */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            background: var(--ink);
+            color: var(--bg);
+            padding: 10px 18px;
+            z-index: 2000;
+            font-family: var(--serif);
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            left: 16px;
+            top: 16px;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+            border-radius: 1px;
+        }
+
+        /* ---------- Links: classic academic underlines ---------- */
+        a {
+            color: var(--ink);
+            text-decoration: underline;
+            text-decoration-color: var(--rule);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+            transition: color 150ms ease, text-decoration-color 150ms ease;
+        }
+
+        a:hover {
+            color: var(--accent);
+            text-decoration-color: var(--accent);
+        }
+
+        /* ---------- Page frame ---------- */
+        .page {
+            max-width: calc(var(--margin-col) + var(--col-gap) + var(--measure));
             margin: 0 auto;
-            background: var(--bg-color);
+            padding: 72px 28px 88px;
         }
 
-        /* Theme toggle button */
+        /* ---------- Theme toggle ---------- */
         .theme-toggle {
             position: fixed;
-            top: 20px;
-            right: 20px;
+            top: 22px;
+            right: 22px;
             z-index: 1000;
-            background: var(--button-bg);
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
+            background: transparent;
+            border: 1px solid var(--rule);
+            border-radius: 999px;
+            width: 36px;
+            height: 36px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            color: var(--ink-muted);
+            transition: color 200ms ease, border-color 200ms ease;
         }
 
         .theme-toggle:hover {
-            background: var(--button-hover);
-            transform: scale(1.1);
+            color: var(--accent);
+            border-color: var(--accent);
         }
 
-        .theme-toggle svg {
-            width: 24px;
-            height: 24px;
-            color: var(--accent-color);
-            transition: all 0.3s ease;
-        }
+        .theme-toggle svg { width: 15px; height: 15px; }
 
-        .theme-toggle.rotating svg {
-            transform: rotate(180deg);
-        }
-
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        a:hover, a:focus {
-            color: var(--accent-hover);
-        }
-
+        /* ---------- Header ---------- */
         .header {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-        }
-
-        .profile-info {
-            flex: 2;
-            min-width: 300px;
-        }
-
-        .profile-image {
-            flex: 1;
-            min-width: 180px;
-            text-align: center;
-        }
-
-        .profile-image img {
-            width: 100%;
-            max-width: 250px;
-            height: auto;
-            border-radius: 8px;
-            transition: opacity 0.3s ease;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 48px;
+            align-items: start;
+            margin-bottom: 84px;
         }
 
         .name {
-            font-size: 42px;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 12px;
-            color: var(--text-color);
-            line-height: 1.2;
+            font-family: var(--serif);
+            font-weight: 500;
+            font-size: 54px;
+            line-height: 1.05;
+            letter-spacing: -0.01em;
+            margin: 0 0 8px;
+            color: var(--ink);
+            text-wrap: balance;
+        }
+
+        .name-native {
+            font-family: "Noto Serif Oriya", var(--serif);
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 1.3;
+            color: var(--ink-faint);
+            margin: 0 0 22px;
+            letter-spacing: 0;
         }
 
         .bio {
-            margin-bottom: 12px;
-            text-align: left;
-            font-size: 18px;
-            line-height: 1.35;
+            margin: 0 0 14px;
+            font-size: 20px;
+            line-height: 1.55;
+            max-width: 62ch;
         }
 
-        .contact-links {
-            text-align: center;
-            margin-top: 12px;
+        .bio:last-of-type { margin-bottom: 0; }
+
+        .bio a { color: var(--accent); text-decoration-color: var(--rule); }
+        .bio a:hover { color: var(--accent-hover); text-decoration-color: var(--accent); }
+
+        /* Contact: small-caps text links, the pre-template convention */
+        .contact {
+            margin-top: 26px;
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 8px 28px;
         }
 
-        .contact-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-            background: var(--button-bg);
-            border-radius: 50%;
-            font-size: 22px;
-            transition: all 0.2s ease;
-            width: 44px;
-            height: 44px;
+        .contact a {
+            font-family: var(--serif);
+            font-variant-caps: all-small-caps;
+            font-feature-settings: "smcp", "c2sc", "kern";
+            letter-spacing: 0.07em;
+            font-size: 19px;
+            color: var(--ink-muted);
+            text-decoration: none;
             cursor: pointer;
         }
 
-        .contact-links a:hover {
-            background: var(--button-hover);
-            transform: translateY(-1px);
+        .contact a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+            text-decoration-color: var(--accent);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 4px;
         }
 
-        .contact-links svg {
-            width: 24px;
-            height: 24px;
+        .portrait img {
+            width: 248px;
+            height: 310px;
+            object-fit: cover;
+            object-position: 50% 50%;
+            border-radius: 2px;
+            box-shadow: 0 0 0 1px var(--rule);
+            display: block;
+            filter: grayscale(0.85) contrast(1.02);
+            transition: filter 400ms ease;
         }
 
+        .portrait img:hover {
+            filter: grayscale(0.25) contrast(1);
+        }
+
+        /* ---------- Sections: margin-label book layout ---------- */
         .section {
-            margin: 20px 0;
+            display: grid;
+            grid-template-columns: var(--margin-col) minmax(0, var(--measure));
+            column-gap: var(--col-gap);
+            margin-bottom: 72px;
         }
 
-        .section-title {
-            font-size: 24px;
-            font-weight: 600;
-            color: var(--text-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 6px;
-            margin-bottom: 12px;
-            line-height: 1.2;
+        .section:last-of-type { margin-bottom: 0; }
+
+        .section-label {
+            grid-column: 1;
+            margin: 0;
+            font-family: var(--serif);
+            font-weight: 500;
+            font-size: 21px;
+            line-height: 1.3;
+            color: var(--ink);
+            font-variant-caps: all-small-caps;
+            font-feature-settings: "smcp", "c2sc", "kern";
+            letter-spacing: 0.08em;
+            position: sticky;
+            top: 28px;
+            align-self: start;
+            text-align: right;
+            padding-top: 2px;
         }
 
-        .publication {
-            margin-bottom: 16px;
-            padding: 12px;
-            background: var(--card-bg);
-            border-radius: 6px;
-            border-left: 3px solid var(--accent-color);
-            transition: background-color 0.3s ease;
+        .section-body {
+            grid-column: 2;
+            min-width: 0;
         }
 
-        .paper-title {
-            font-weight: 600;
-            font-size: 18px;
-            margin-bottom: 5px;
-            line-height: 1.25;
-        }
-
-        .paper-title a {
-            color: var(--text-color);
-        }
-
-        .paper-title a:hover {
-            color: var(--accent-color);
-        }
-
-        .authors {
-            margin-bottom: 5px;
-            font-style: italic;
-            font-size: 16px;
-            line-height: 1.25;
-        }
-
-        .venue {
-            margin-bottom: 6px;
-            color: var(--text-secondary);
-            font-size: 16px;
-            line-height: 1.25;
-        }
-
-        .paper-links a {
-            margin-right: 12px;
-            padding: 8px 14px;
-            display: inline-block;
-            background: var(--button-bg);
-            border-radius: 4px;
-            font-size: 15px;
-        }
-
-        .paper-links a:hover {
-            background: var(--button-hover);
+        /* ---------- News ---------- */
+        .news-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
         .news-item {
-            margin-bottom: 10px;
-            padding: 8px 12px;
-            background: var(--news-bg);
-            border-radius: 4px;
-            font-size: 17px;
+            display: grid;
+            grid-template-columns: 90px 1fr;
+            gap: 14px;
+            padding: 9px 0;
+            font-size: 19px;
             line-height: 1.5;
-            transition: background-color 0.3s ease;
-        }
-
-        .news-item:hover {
-            background-color: var(--button-hover);
+            align-items: baseline;
         }
 
         .news-date {
+            font-family: var(--serif);
+            font-variant-caps: all-small-caps;
+            font-feature-settings: "smcp", "tnum", "lnum", "kern";
+            letter-spacing: 0.05em;
+            font-size: 18.5px;
+            color: var(--ink-muted);
+            white-space: nowrap;
+        }
+
+        /* ---------- Publications: hanging bibliography ---------- */
+        .publication {
+            margin-bottom: 34px;
+        }
+
+        .publication:last-child { margin-bottom: 0; }
+
+        .paper-title {
+            font-family: var(--serif);
             font-weight: 600;
-            color: var(--accent-color);
+            font-size: 21px;
+            line-height: 1.35;
+            margin-bottom: 5px;
+            text-wrap: balance;
         }
 
-        .underline {
-            text-decoration: underline;
+        .paper-title a {
+            text-decoration-color: transparent;
         }
 
-        .equal-contrib {
-            font-size: 15px;
-            color: var(--text-secondary);
+        .paper-title a:hover {
+            text-decoration-color: var(--accent);
+        }
+
+        .authors {
+            font-size: 19px;
+            color: var(--ink-muted);
             font-style: italic;
-            line-height: 1.3;
+            margin-bottom: 5px;
+            line-height: 1.45;
+        }
+
+        .authors .self {
+            color: var(--ink);
+        }
+
+        .alpha-marker {
+            font-style: normal;
+            color: var(--ink-muted);
+            font-size: 0.8em;
+            margin-left: 2px;
+            vertical-align: super;
+            line-height: 0;
+            cursor: help;
+        }
+
+        /* Venue carries prestige: full ink, small caps for venue names */
+        .venue {
+            font-size: 19.5px;
+            color: var(--ink);
+            line-height: 1.5;
+            margin-bottom: 2px;
+        }
+
+        .venue .vname {
+            font-variant-caps: all-small-caps;
+            font-feature-settings: "smcp", "c2sc", "kern", "lnum";
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            font-size: 1.14em;
+        }
+
+        .venue .vlong {
+            color: var(--ink-muted);
         }
 
         .awards {
+            font-size: 17.5px;
+            color: var(--ink);
             margin-top: 6px;
-            font-size: 15px;
-            color: var(--accent-color);
-            font-weight: 600;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
-        /* Footer */
-        .footer {
+        .awards a {
+            color: var(--accent);
+            text-decoration-color: var(--rule);
+        }
+
+        .awards a:hover {
+            color: var(--accent-hover);
+            text-decoration-color: var(--accent);
+        }
+
+        .paper-links {
+            margin-top: 7px;
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .paper-links a {
+            font-family: var(--serif);
+            font-variant-caps: all-small-caps;
+            font-feature-settings: "smcp", "kern";
+            letter-spacing: 0.07em;
+            font-size: 16.5px;
+            color: var(--ink-muted);
+            text-decoration: none;
+        }
+
+        .paper-links a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 4px;
+        }
+
+        .equal-contrib {
+            font-size: 16px;
+            color: var(--ink-faint);
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        .authorship-note {
+            font-size: 17px;
+            color: var(--ink-muted);
+            font-style: italic;
+            line-height: 1.55;
             margin-top: 40px;
-            padding: 20px 0;
-            border-top: 1px solid var(--card-border);
-            text-align: center;
-            font-size: 14px;
-            color: var(--text-secondary);
+            padding-top: 18px;
+            border-top: 1px solid var(--rule-faint);
         }
 
-        /* Responsive design */
-        @media (max-width: 768px) {
+        .authorship-note .marker {
+            font-style: normal;
+            font-size: 0.8em;
+            vertical-align: super;
+            line-height: 0;
+            margin-right: 4px;
+        }
+
+        /* ---------- Footer ---------- */
+        .footer {
+            margin-top: 88px;
+            padding-top: 22px;
+            border-top: 1px solid var(--rule);
+            font-size: 16px;
+            color: var(--ink-faint);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-feature-settings: "onum", "kern";
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 960px) {
+            .section {
+                grid-template-columns: 1fr;
+            }
+
+            .section-label {
+                grid-column: 1;
+                position: static;
+                text-align: left;
+                margin-bottom: 18px;
+                padding-top: 0;
+            }
+
+            .section-body { grid-column: 1; }
+        }
+
+        @media (max-width: 640px) {
+            .page { padding: 44px 20px 60px; }
+
             .header {
-                flex-direction: column;
-                text-align: center;
+                grid-template-columns: 1fr;
+                gap: 26px;
+                margin-bottom: 56px;
             }
 
-            .name {
-                font-size: 32px;
-            }
+            .portrait { order: -1; }
+            .portrait img { width: 132px; height: 165px; }
 
-            .contact-links {
-                justify-content: center;
-            }
+            .name { font-size: 40px; margin-bottom: 6px; }
+            .name-native { font-size: 19px; margin-bottom: 16px; }
+            .bio { font-size: 18px; }
+            .contact { gap: 6px 22px; }
+            .contact a { font-size: 17px; }
 
-            body {
-                font-size: 18px;
+            .news-item {
+                grid-template-columns: 78px 1fr;
+                gap: 12px;
+                font-size: 17px;
             }
+            .news-date { font-size: 16.5px; }
 
-            .bio {
-                font-size: 16px;
-            }
+            .paper-title { font-size: 19px; }
+            .authors { font-size: 17px; }
+            .venue { font-size: 17.5px; }
+            .awards { font-size: 16px; }
+
+            .section { margin-bottom: 56px; }
 
             .theme-toggle {
-                top: 15px;
-                right: 15px;
-                width: 45px;
-                height: 45px;
+                top: 14px;
+                right: 14px;
+                width: 32px;
+                height: 32px;
             }
+            .theme-toggle svg { width: 13px; height: 13px; }
+        }
+
+        /* ---------- Print ---------- */
+        @media print {
+            html, body { background: #fff; color: #000; }
+            .theme-toggle, .skip-link { display: none; }
+            .page { max-width: 100%; padding: 0; }
+            a { color: #000; text-decoration: none; }
+            .section { grid-template-columns: 140px 1fr; column-gap: 32px; margin-bottom: 40px; }
+            .section-label { position: static; }
+            .portrait { display: none; }
+            .header { grid-template-columns: 1fr; margin-bottom: 40px; }
+            .news-item, .publication { break-inside: avoid; }
         }
     </style>
 </head>
 <body>
-    <!-- Theme Toggle Button -->
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme">
-        <svg id="themeIcon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
-        </svg>
+        <svg id="themeIcon" viewBox="0 0 24 24" aria-hidden="true"></svg>
     </button>
 
-    <div class="container">
-        <!-- Header Section -->
+    <div class="page">
+
         <header class="header">
-            <div class="profile-info">
+            <div>
                 <h1 class="name">Sourav Sahoo</h1>
-                <div class="bio">
-                    I am a third-year PhD student at the <a href="https://orc.mit.edu/" target="_blank" rel="noopener noreferrer">MIT Operations Research Center</a>, where I am advised by <a href="https://www.mit.edu/~golrezae/" target="_blank" rel="noopener noreferrer">Prof. Negin Golrezaei</a>. My research interests lie at the intersection of computer science, operations research, and economics, with a current focus on online learning and auctions.
-                </div>
-                <div class="bio">
-                    Previously, I earned my Dual Degree (B.Tech &amp; M.Tech) in <a href="http://www.ee.iitm.ac.in/" target="_blank" rel="noopener noreferrer">Electrical Engineering</a> from <a href="https://www.iitm.ac.in/" target="_blank" rel="noopener noreferrer">Indian Institute of Technology Madras</a>, advised by <a href="https://www.tifr.res.in/~abhishek.sinha/" target="_blank" rel="noopener noreferrer">Prof. Abhishek Sinha</a>.
-                </div>
-                <div class="contact-links">
-                    <a id="emailLink" aria-label="Email Me" tabindex="0">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    </a>
-                    <a href="https://scholar.google.co.in/citations?hl=en&authuser=1&user=IWZJF8wAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar Profile">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
-                    </a>
-                    <a href="https://www.linkedin.com/in/sourav-sahoo-68a07615a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-                    </a>
-                    <a href="https://twitter.com/sourav22899" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                    </a>
-                    <a href="https://github.com/sourav22899" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    </a>
-                    <a href="https://sourav22899.github.io/files/cv_updated.pdf" target="_blank" rel="noopener noreferrer" aria-label="Download CV">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/></svg>
-                    </a>
-                </div>
+                <p class="name-native" lang="or" aria-label="Sourav Sahoo in Odia">ସୌରଭ ସାହୁ</p>
+                <p class="bio">
+                    I'm a third-year PhD student at the <a href="https://orc.mit.edu/" target="_blank" rel="noopener noreferrer">MIT Operations Research Center</a>, advised by <a href="https://www.mit.edu/~golrezae/" target="_blank" rel="noopener noreferrer">Prof. Negin Golrezaei</a>. My research sits at the intersection of computer science, operations research, and economics &mdash; currently focused on online learning and auctions.
+                </p>
+                <p class="bio">
+                    Previously I earned a Dual Degree (B.Tech &amp; M.Tech) in <a href="http://www.ee.iitm.ac.in/" target="_blank" rel="noopener noreferrer">Electrical Engineering</a> from <a href="https://www.iitm.ac.in/" target="_blank" rel="noopener noreferrer">IIT Madras</a>, advised by <a href="https://www.tifr.res.in/~abhishek.sinha/" target="_blank" rel="noopener noreferrer">Prof. Abhishek Sinha</a>.
+                </p>
+                <nav class="contact" aria-label="Contact and profiles">
+                    <a id="emailLink" tabindex="0">Email</a>
+                    <a href="https://scholar.google.co.in/citations?hl=en&authuser=1&user=IWZJF8wAAAAJ" target="_blank" rel="noopener noreferrer">Scholar</a>
+                    <a href="https://github.com/sourav22899" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://twitter.com/sourav22899" target="_blank" rel="noopener noreferrer">X</a>
+                    <a href="https://www.linkedin.com/in/sourav-sahoo-68a07615a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://sourav22899.github.io/files/cv_updated.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+                </nav>
             </div>
-            <div class="profile-image">
-                <img src="./img/profile_pic3.jpeg" alt="Sourav Sahoo's Profile Picture" loading="lazy">
+            <div class="portrait">
+                <img src="./img/profile_pic3.jpeg" alt="Portrait of Sourav Sahoo" loading="lazy">
             </div>
         </header>
 
-        <!-- News Section -->
-        <section class="section">
-            <h2 class="section-title">News</h2>
-            <div class="news-item">
-                <span class="news-date">[2026.01]</span> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6145788" target="_blank" rel="noopener noreferrer">Learning to Bid in Discriminatory Auctions with Budget Constraints</a> accepted at <a href="https://aistats.org/aistats2026/" target="_blank" rel="noopener noreferrer">AISTATS 2026</a>.
-            </div>
-            <div class="news-item">
-                <span class="news-date">[2025.05]</span> <a href="https://proceedings.mlr.press/v267/golrezaei25a.html" target="_blank" rel="noopener noreferrer">Learning Safe Strategies for Value Maximizing Buyers in Uniform Price Auctions</a> accepted at <a href="https://icml.cc/" target="_blank" rel="noopener noreferrer">ICML 2025</a>.
-            </div>
-            <div class="news-item">
-                <span class="news-date">[2023.09]</span> Started PhD at MIT!
-            </div>
-            <div class="news-item">
-                <span class="news-date">[2022.07]</span> Graduated from IIT Madras!
-            </div>
-            <div class="news-item">
-                <span class="news-date">[2022.02]</span> <a href="https://arxiv.org/abs/2109.12340" target="_blank" rel="noopener noreferrer">Distributed Online Optimization with Byzantine Adversarial Agents</a> accepted at <a href="https://acc2022.a2c2.org/" target="_blank" rel="noopener noreferrer">ACC 2022</a>.
-            </div>
-            <!--
-            <div class="news-item">
-                <span class="news-date">[2022.01]</span> <a href="https://arxiv.org/abs/2110.07881" target="_blank" rel="noopener noreferrer">k-experts: Online Policies and Fundamental Limits</a> accepted at <a href="https://aistats.org/aistats2022/" target="_blank" rel="noopener noreferrer">AISTATS 2022</a>.
-            </div>
-            -->
-        </section>
+        <main id="main">
 
-        <!-- Working Papers Section -->
-        <section class="section">
-            <h2 class="section-title">Working Papers</h2>
+            <section class="section">
+                <h2 class="section-label">News</h2>
+                <div class="section-body">
+                    <ul class="news-list">
+                        <li class="news-item">
+                            <span class="news-date">Jun 2026</span>
+                            <span>Started as an Applied Scientist Intern at Microsoft AI.</span>
+                        </li>
+                        <li class="news-item">
+                            <span class="news-date">Jan 2026</span>
+                            <span><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6145788" target="_blank" rel="noopener noreferrer">Learning to Bid in Discriminatory Auctions with Budget Constraints</a> accepted at <a href="https://aistats.org/aistats2026/" target="_blank" rel="noopener noreferrer">AISTATS 2026</a>.</span>
+                        </li>
+                        <li class="news-item">
+                            <span class="news-date">May 2025</span>
+                            <span><a href="https://proceedings.mlr.press/v267/golrezaei25a.html" target="_blank" rel="noopener noreferrer">Learning Safe Strategies for Value Maximizing Buyers in Uniform Price Auctions</a> accepted at <a href="https://icml.cc/" target="_blank" rel="noopener noreferrer">ICML 2025</a>.</span>
+                        </li>
+                        <li class="news-item">
+                            <span class="news-date">Sep 2023</span>
+                            <span>Started PhD at MIT.</span>
+                        </li>
+                        <li class="news-item">
+                            <span class="news-date">Jul 2022</span>
+                            <span>Graduated from IIT Madras.</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
 
-            <article class="publication">
-                <div class="paper-title">
-                    <a href="https://proceedings.mlr.press/v267/golrezaei25a.html" target="_blank" rel="noopener noreferrer">Learning Safe Strategies for Value Maximizing Buyers in Uniform Price Auctions</a>
-                </div>
-                <div class="authors">
-                    Negin Golrezaei and <span class="underline">Sourav Sahoo</span>
-                </div>
-                <div class="venue">
-                    Major Revision, <strong>Management Science</strong>
-                </div>
-                <div class="venue">
-                    ICML 2025, 42nd International Conference on Machine Learning
-                </div>
-                <div class="awards">
-                    🏆 First Place, <a href="https://connect.informs.org/rmp/awards/current-awards/student-award" target="_blank" rel="noopener noreferrer">2025 RMP Jeff McGill Student Paper Award</a>
-                </div>
-                <div class="awards">
-                    🏆 Second Place, <a href="https://connect.informs.org/auctionsandmarketdesign/awards654/awards" target="_blank" rel="noopener noreferrer">2025 Michael H. Rothkopf Junior Researcher Paper Prize</a>
-                </div>
-                <div class="paper-links">
-                    <a href="https://www.dropbox.com/scl/fi/uu4s1s6m1iy25ub7mmp6b/pdf_uniform_price_auctions_GE.pdf?rlkey=1nxvaaqgvwh4eknb4aubi12ec&st=pnsas00k&dl=0" target="_blank" rel="noopener noreferrer">Slides</a>
-                </div>
-            </article>
-        </section>
+            <section class="section">
+                <h2 class="section-label">Working Papers</h2>
+                <div class="section-body">
 
-        <!-- Conference Publications Section -->
-        <section class="section">
-            <h2 class="section-title">Conferences</h2>
+                    <article class="publication">
+                        <div class="paper-title">
+                            <a href="https://proceedings.mlr.press/v267/golrezaei25a.html" target="_blank" rel="noopener noreferrer">Learning Safe Strategies for Value Maximizing Buyers in Uniform Price Auctions</a>
+                        </div>
+                        <div class="authors">
+                            Negin Golrezaei and <span class="self">Sourav Sahoo</span><span class="alpha-marker" title="Authors listed alphabetically">&dagger;</span>
+                        </div>
+                        <div class="venue">Major Revision, <span class="vname">Management Science</span></div>
+                        <div class="venue"><span class="vname">ICML 2025</span> <span class="vlong">&mdash; 42nd International Conference on Machine Learning</span></div>
+                        <div class="awards">
+                            🏆&nbsp; First Place, <a href="https://connect.informs.org/rmp/awards/current-awards/student-award" target="_blank" rel="noopener noreferrer">2025 RMP Jeff McGill Student Paper Award</a>
+                        </div>
+                        <div class="awards">
+                            🏆&nbsp; Second Place, <a href="https://connect.informs.org/auctionsandmarketdesign/awards654/awards" target="_blank" rel="noopener noreferrer">2025 Michael H. Rothkopf Junior Researcher Paper Prize</a>
+                        </div>
+                        <div class="paper-links">
+                            <a href="https://www.dropbox.com/scl/fi/uu4s1s6m1iy25ub7mmp6b/pdf_uniform_price_auctions_GE.pdf?rlkey=1nxvaaqgvwh4eknb4aubi12ec&st=pnsas00k&dl=0" target="_blank" rel="noopener noreferrer">Slides</a>
+                        </div>
+                    </article>
 
-            <article class="publication">
-                <div class="paper-title">
-                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6145788" target="_blank" rel="noopener noreferrer">Learning to Bid in Discriminatory Auctions with Budget Constraints</a>
-                </div>
-                <div class="authors">
-                    Negin Golrezaei and <span class="underline">Sourav Sahoo</span>
-                </div>
-                <div class="venue">
-                    AISTATS 2026, 29th International Conference on Artificial Intelligence and Statistics
-                </div>
-                <div class="awards">
-                    ⭐ Spotlight Presentation (top 3%)
-                </div>
-            </article>
+                    <article class="publication">
+                        <div class="paper-title">
+                            Safe Strategies in Multi-Unit Auctions: Equilibria, Liquid Welfare, and Revenue
+                        </div>
+                        <div class="authors">
+                            Negin Golrezaei and <span class="self">Sourav Sahoo</span><span class="alpha-marker" title="Authors listed alphabetically">&dagger;</span>
+                        </div>
+                        <div class="venue"><span class="vlong">Draft available upon request.</span></div>
+                    </article>
 
-            <article class="publication">
-                <div class="paper-title">
-                    <a href="https://ieeexplore.ieee.org/document/9867506" target="_blank" rel="noopener noreferrer">Distributed Online Optimization with Byzantine Adversarial Agents</a>
                 </div>
-                <div class="authors">
-                    <span class="underline">Sourav Sahoo</span>, Anand Gokhale and Rachel Kalpana Kalaimani
-                </div>
-                <div class="venue">
-                    ACC 2022, 41st American Control Conference
-                </div>
-            </article>
+            </section>
 
-            <article class="publication">
-                <div class="paper-title">
-                    <a href="https://proceedings.mlr.press/v151/mukhopadhyay22a.html" target="_blank" rel="noopener noreferrer">k-experts: Online Policies and Fundamental Limits</a>
-                </div>
-                <div class="authors">
-                    Samrat Mukhopadhyay, <span class="underline">Sourav Sahoo</span>, and Abhishek Sinha
-                </div>
-                <div class="venue">
-                    AISTATS 2022, 25th International Conference on Artificial Intelligence and Statistics
-                </div>
-                <div class="paper-links">
-                    <a href="https://github.com/sourav22899/k-sets-problem" target="_blank" rel="noopener noreferrer">Code</a>
-                </div>
-            </article>
+            <section class="section">
+                <h2 class="section-label">Conferences</h2>
+                <div class="section-body">
 
-            <article class="publication">
-                <div class="paper-title">
-                    <a href="https://link.springer.com/chapter/10.1007/978-3-030-41299-9_34" target="_blank" rel="noopener noreferrer">A Segment Level Approach to Speech Emotion Recognition using Transfer Learning</a>
-                </div>
-                <div class="authors">
-                    <span class="underline">Sourav Sahoo</span>, Puneet Kumar, Balasubramanian Raman and Partha Pratim Roy
-                </div>
-                <div class="venue">
-                    ACPR 2019, 5th Asian Conference on Pattern Recognition
-                </div>
-                <div class="paper-links">
-                    <a href="https://github.com/sourav22899/segment-ser" target="_blank" rel="noopener noreferrer">Code</a>
-                </div>
-            </article>
-        </section>
+                    <article class="publication">
+                        <div class="paper-title">
+                            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6145788" target="_blank" rel="noopener noreferrer">Learning to Bid in Discriminatory Auctions with Budget Constraints</a>
+                        </div>
+                        <div class="authors">
+                            Negin Golrezaei and <span class="self">Sourav Sahoo</span><span class="alpha-marker" title="Authors listed alphabetically">&dagger;</span>
+                        </div>
+                        <div class="venue"><span class="vname">AISTATS 2026</span> <span class="vlong">&mdash; 29th International Conference on Artificial Intelligence and Statistics</span></div>
+                        <div class="awards">
+                            ⭐&nbsp; Spotlight Presentation <span style="color: var(--ink-faint);">(top 3%)</span>
+                        </div>
+                    </article>
 
-        <!-- Workshop Publications Section -->
-        <section class="section">
-            <h2 class="section-title">Workshops</h2>
+                    <article class="publication">
+                        <div class="paper-title">
+                            <a href="https://ieeexplore.ieee.org/document/9867506" target="_blank" rel="noopener noreferrer">Distributed Online Optimization with Byzantine Adversarial Agents</a>
+                        </div>
+                        <div class="authors">
+                            <span class="self">Sourav Sahoo</span>, Anand Gokhale, and Rachel Kalpana Kalaimani
+                        </div>
+                        <div class="venue"><span class="vname">ACC 2022</span> <span class="vlong">&mdash; 41st American Control Conference</span></div>
+                    </article>
 
-            <article class="publication">
-                <div class="paper-title">
-                    <a href="https://arxiv.org/abs/2012.00096" target="_blank" rel="noopener noreferrer">Multi-Modal Detection of Alzheimer's Disease from Speech and Text</a>
-                </div>
-                <div class="authors">
-                    Amish Mittal*, <span class="underline">Sourav Sahoo*</span>, Arnhav Datar*, Juned Kadiwala*, Hrithwik Shalu and Jimson Mathew
-                </div>
-                <div class="venue">
-                    BIOKDD 2021, 20th International Workshop on Data Mining in Bioinformatics
-                </div>
-                <div class="equal-contrib">*Authors contributed equally</div>
-            </article>
-        </section>
+                    <article class="publication">
+                        <div class="paper-title">
+                            <a href="https://proceedings.mlr.press/v151/mukhopadhyay22a.html" target="_blank" rel="noopener noreferrer">k-experts: Online Policies and Fundamental Limits</a>
+                        </div>
+                        <div class="authors">
+                            Samrat Mukhopadhyay, <span class="self">Sourav Sahoo</span>, and Abhishek Sinha
+                        </div>
+                        <div class="venue"><span class="vname">AISTATS 2022</span> <span class="vlong">&mdash; 25th International Conference on Artificial Intelligence and Statistics</span></div>
+                        <div class="paper-links">
+                            <a href="https://github.com/sourav22899/k-sets-problem" target="_blank" rel="noopener noreferrer">Code</a>
+                        </div>
+                    </article>
 
-        <!--
-        <section class="section">
-            <h2 class="section-title">Other Projects</h2>
+                </div>
+            </section>
 
-            <article class="publication">
-                <div class="paper-title">
-                    <a href="https://arxiv.org/abs/2209.14222" target="_blank" rel="noopener noreferrer">Online Subset Selection using α-Core with no Augmented Regret</a>
-                </div>
-                <div class="authors">
-                    <span class="underline">Sourav Sahoo</span>, Siddhant Chaudhary, Samrat Mukhopadhyay, and Abhishek Sinha
-                </div>
-            </article>
+            <section class="section">
+                <h2 class="section-label">Earlier Work</h2>
+                <div class="section-body">
 
-            <article class="publication">
-                <div class="paper-title">
-                    <a href="https://sourav22899.github.io/files/cs6515_project.pdf" target="_blank" rel="noopener noreferrer">SVRG-SO: SVRG for Stochastic Optimization</a>
-                </div>
-                <div class="authors">
-                    Sourav Sahoo
-                </div>
-            </article>
+                    <article class="publication">
+                        <div class="paper-title">
+                            <a href="https://arxiv.org/abs/2012.00096" target="_blank" rel="noopener noreferrer">Multi-Modal Detection of Alzheimer's Disease from Speech and Text</a>
+                        </div>
+                        <div class="authors">
+                            Amish Mittal*, <span class="self">Sourav Sahoo*</span>, Arnhav Datar*, Juned Kadiwala*, Hrithwik Shalu, and Jimson Mathew
+                        </div>
+                        <div class="venue"><span class="vname">BIOKDD 2021</span> <span class="vlong">&mdash; 20th International Workshop on Data Mining in Bioinformatics</span></div>
+                        <div class="equal-contrib">* Equal contribution</div>
+                    </article>
 
-            <article class="publication">
-                <div class="paper-title">
-                    <a href="https://sourav22899.github.io/files/ee_5121_term_paper.pdf" target="_blank" rel="noopener noreferrer">Convergence and Implicit Regularization of Stochastic Mirror Descent in Overparameterized Models</a>
-                </div>
-                <div class="authors">
-                    Sourav Sahoo
-                </div>
-                <div class="paper-links">
-                    <a href="https://github.com/sourav22899/ee5121-convex/tree/master/term-paper" target="_blank" rel="noopener noreferrer">Code</a>
-                </div>
-            </article>
-        </section>
-        -->
+                    <article class="publication">
+                        <div class="paper-title">
+                            <a href="https://link.springer.com/chapter/10.1007/978-3-030-41299-9_34" target="_blank" rel="noopener noreferrer">A Segment Level Approach to Speech Emotion Recognition using Transfer Learning</a>
+                        </div>
+                        <div class="authors">
+                            <span class="self">Sourav Sahoo</span>, Puneet Kumar, Balasubramanian Raman, and Partha Pratim Roy
+                        </div>
+                        <div class="venue"><span class="vname">ACPR 2019</span> <span class="vlong">&mdash; 5th Asian Conference on Pattern Recognition</span></div>
+                        <div class="paper-links">
+                            <a href="https://github.com/sourav22899/segment-ser" target="_blank" rel="noopener noreferrer">Code</a>
+                        </div>
+                    </article>
 
-        <!-- Footer -->
+                    <div class="authorship-note">
+                        <span class="marker">&dagger;</span>Authors listed alphabetically, following the convention in economics, operations research, and theoretical computer science.
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
         <footer class="footer">
-            © 2025 Sourav Sahoo · Last updated February 2026
+            <span>&copy; 2026 Sourav Sahoo</span>
+            <span>Updated Jun 2026</span>
         </footer>
+
     </div>
 
     <script>
-        // Theme toggle functionality
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
         const html = document.documentElement;
 
-        // Sun icon SVG
-        const sunIcon = `<path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>`;
+        const sunIcon = `<circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 3v2M12 19v2M21 12h-2M5 12H3M18.36 5.64l-1.42 1.42M7.05 16.95l-1.41 1.41M18.36 18.36l-1.42-1.42M7.05 7.05 5.64 5.64" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>`;
+        const moonIcon = `<path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>`;
 
-        // Moon icon SVG
-        const moonIcon = `<path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>`;
+        themeIcon.innerHTML = html.getAttribute('data-theme') === 'dark' ? sunIcon : moonIcon;
 
-        // Set correct icon based on current theme (already applied by head script)
-        if (html.getAttribute('data-theme') === 'dark') {
-            themeIcon.innerHTML = sunIcon;
-        } else {
-            themeIcon.innerHTML = moonIcon;
-        }
-
-        // Theme toggle event listener
         themeToggle.addEventListener('click', function() {
-            themeToggle.classList.add('rotating');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const nextTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
 
-            if (html.getAttribute('data-theme') === 'dark') {
-                html.removeAttribute('data-theme');
-                themeIcon.innerHTML = moonIcon;
-                localStorage.setItem('theme', 'light');
-            } else {
+            if (nextTheme === 'dark') {
                 html.setAttribute('data-theme', 'dark');
                 themeIcon.innerHTML = sunIcon;
-                localStorage.setItem('theme', 'dark');
+            } else {
+                html.removeAttribute('data-theme');
+                themeIcon.innerHTML = moonIcon;
             }
 
-            setTimeout(() => {
-                themeToggle.classList.remove('rotating');
-            }, 300);
-        });
-
-        // Keyboard accessibility
-        themeToggle.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                themeToggle.click();
+            // If the user toggled back to their system preference, clear the
+            // override so the page resumes following system day/night changes.
+            const matchesSystem = (nextTheme === 'dark') === systemPrefersDark;
+            if (matchesSystem) {
+                localStorage.removeItem('theme');
+            } else {
+                localStorage.setItem('theme', nextTheme);
             }
         });
 
-        // Listen for system theme changes
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
             if (!localStorage.getItem('theme')) {
                 if (e.matches) {
@@ -619,16 +761,12 @@
             }
         });
 
-        // Email Obfuscation Logic
         const emailLink = document.getElementById('emailLink');
         if (emailLink) {
             emailLink.addEventListener('click', function(e) {
                 e.preventDefault();
-                const user = 'sahoo.sourav1999';
-                const domain = 'gmail.com';
-                window.location.href = `mailto:${user}@${domain}`;
+                window.location.href = 'mailto:' + 'sahoo.sourav1999' + '@' + 'gmail.com';
             });
-
             emailLink.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
