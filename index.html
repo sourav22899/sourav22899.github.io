@@ -1,3 +1,7 @@
+---
+# Empty front matter: tells the GitHub Pages Jekyll build to process this file
+# so the footer date below stamps itself at deploy time.
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -712,7 +716,7 @@
 
         <footer class="footer">
             <span>&copy; 2026 Sourav Sahoo</span>
-            <span>Updated Jun 2026</span>
+            <span>Updated {{ site.time | date: "%b %Y" }}</span>
         </footer>
 
     </div>

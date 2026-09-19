@@ -1,0 +1,3 @@
+# Minimal config for the GitHub Pages (Jekyll) build.
+# site.time is the build time, which is what the footer stamp uses.
+timezone: America/New_York
